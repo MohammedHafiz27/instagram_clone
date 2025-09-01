@@ -1,4 +1,7 @@
-abstract class HomeRepo {
+import 'package:dartz/dartz.dart';
+import 'package:instagram_clone/Core/utils/failure.dart';
+import 'package:instagram_clone/Features/homepage/data/models/instagram/instagram.dart';
 
-  Future<>
+abstract class HomeRepo {
+  Future<Either<Failure, Instagram>> getInstagramProfile(String userName);
 }
