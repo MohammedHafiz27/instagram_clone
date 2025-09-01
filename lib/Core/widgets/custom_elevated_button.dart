@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/Core/utils/app_styles.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final void Function()? onPressed;

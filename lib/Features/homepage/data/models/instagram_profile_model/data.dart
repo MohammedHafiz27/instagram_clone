@@ -158,7 +158,7 @@ class Data extends Equatable {
   final int? mediaCount;
   final String? merchantCheckoutStyle;
   final MetaVerifiedBenefitsInfo? metaVerifiedBenefitsInfo;
-  final dynamic? metaVerifiedRelatedAccountsCount;
+  final dynamic metaVerifiedRelatedAccountsCount;
   final Nametag? nametag;
   final bool? nonproCanMaybeSeeProfileHypercard;
   final NotMetaVerifiedFrictionInfo? notMetaVerifiedFrictionInfo;

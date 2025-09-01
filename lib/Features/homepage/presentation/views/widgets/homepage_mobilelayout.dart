@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
+import 'package:instagram_clone/Core/utils/show_snakebar.dart';
 import 'package:instagram_clone/Core/widgets/custom_elevated_button.dart';
 import 'package:instagram_clone/Features/homepage/presentation/view_models/instagram_profile_cubit/instagram_profile_cubit.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/widgets/custom_text_field.dart';
@@ -37,9 +38,9 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
             BlocConsumer<InstagramProfileCubit, InstagramProfileState>(
               listener: (context, state) {
                 if (state is InstagramProfileFailure) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+                  showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Profile fetched successfully")));
+                  showSnackBar(context, message: "Profile fetched successfully");
                 }
               },
               builder: (context, state) {
