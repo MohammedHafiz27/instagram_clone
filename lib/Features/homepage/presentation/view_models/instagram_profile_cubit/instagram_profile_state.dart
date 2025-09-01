@@ -7,9 +7,9 @@ final class InstagramProfileInitial extends InstagramProfileState {}
 final class InstagramProfileLoading extends InstagramProfileState {}
 
 final class InstagramProfileSuccess extends InstagramProfileState {
-  // InstagramProfileSuccess({required this.result});
+  InstagramProfileSuccess({required this.instagramProfile});
 
-  // dynamic result;
+  dynamic instagramProfile;
 }
 
 final class InstagramProfileFailure extends InstagramProfileState {

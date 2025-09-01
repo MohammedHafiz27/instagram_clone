@@ -6,7 +6,7 @@ import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_
 import 'package:instagram_clone/Features/homepage/data/repos/homepage_repo.dart';
 
 class HomepageRepoImple implements HomepageRepo {
-  HomepageRepoImple({required this.apiService});
+  HomepageRepoImple(this.apiService);
   final ApiService apiService;
 
   @override

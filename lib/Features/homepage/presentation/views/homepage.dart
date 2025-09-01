@@ -15,7 +15,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomAdaptiveLayout(
       mobileLayout: (context) => BlocProvider(
-        create: (context) => InstagramProfileCubit(HomepageRepoImple(apiService: ApiService())),
+        create: (context) => InstagramProfileCubit(HomepageRepoImple(ApiService())),
         child: HomePageMobileLayout(),
       ),
       tabletLayout: (context) => SizedBox(),

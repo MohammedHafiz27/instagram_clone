@@ -40,6 +40,7 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                 if (state is InstagramProfileFailure) {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
+                  print(state.instagramProfile);
                   showSnackBar(context, message: "Profile fetched successfully");
                 }
               },
