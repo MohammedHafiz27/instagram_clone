@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-    
-class Homepage extends StatelessWidget {
+import 'package:instagram_clone/Core/utils/custom_adaptive_layout.dart';
+import 'package:instagram_clone/Features/homepage/presentation/views/widgets/mobilelayout.dart';
 
-  const Homepage({ super.key });
-  
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
-      body: Container(),
-    );
+    return CustomAdaptiveLayout(mobileLayout: (context) => MobileLayout(), tabletLayout: (context) => SizedBox(),);
   }
 }
+
