@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Homepage(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(scaffoldBackgroundColor: Color(0xff000000)),
     );

@@ -9,6 +9,7 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, fontSize: 24),
     );
   }
+
   static TextStyle styleRegular20(BuildContext context) {
     return TextStyle(
       color: Color(0xffffffff),

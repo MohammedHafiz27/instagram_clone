@@ -23,13 +23,19 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
           children: [
             SizedBox(height: 100),
             Icon(Ionicons.logo_instagram, color: Colors.pinkAccent, size: 100),
-            SizedBox(height: 100),
+            SizedBox(height: 50),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text("Enter userName :", style: AppStyles.styleSemiBold24(context)),
+              child: Text(
+                "Enter User Name :",
+                style: AppStyles.styleSemiBold24(context),
+              ),
             ),
             SizedBox(height: 20),
-            CustomTextField(userNameController: userNameController, hintText: 'Enter UserName'),
+            CustomTextField(
+              userNameController: userNameController,
+              hintText: 'Enter User Name',
+            ),
             SizedBox(height: 20),
             CustomElevatedButton(onPressed: () {}),
           ],
