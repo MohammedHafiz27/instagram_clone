@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Core/utils/size_config.dart';
 
 class CustomAdaptiveLayout extends StatelessWidget {
   final WidgetBuilder mobileLayout, tabletLayout;
@@ -9,7 +10,7 @@ class CustomAdaptiveLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 800) {
+        if (constraints.maxWidth < SizeConfig.tabletBreakPoint) {
           return mobileLayout(context);
         } else {
           return tabletLayout(context);

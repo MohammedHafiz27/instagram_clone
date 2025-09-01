@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-class MobileLayout extends StatelessWidget {
-  const MobileLayout({super.key});
+class HomePageMobileLayout extends StatelessWidget {
+  const HomePageMobileLayout({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +12,7 @@ class MobileLayout extends StatelessWidget {
           SizedBox(height: 100),
           Icon(Ionicons.logo_instagram, color: Colors.pinkAccent, size: 70),
           SizedBox(height: 100),
+          
         ],
       ),
     );

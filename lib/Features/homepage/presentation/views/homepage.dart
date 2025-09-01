@@ -7,7 +7,9 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomAdaptiveLayout(mobileLayout: (context) => MobileLayout(), tabletLayout: (context) => SizedBox(),);
+    return CustomAdaptiveLayout(
+      mobileLayout: (context) => HomePageMobileLayout(),
+      tabletLayout: (context) => SizedBox(),
+    );
   }
 }
-
