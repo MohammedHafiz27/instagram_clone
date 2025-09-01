@@ -36,9 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   ionicons: ^0.2.2
   flutter_dotenv: ^6.0.0
-  http: ^1.5.0
   dartz: ^0.10.1
   equatable: ^2.0.7
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
