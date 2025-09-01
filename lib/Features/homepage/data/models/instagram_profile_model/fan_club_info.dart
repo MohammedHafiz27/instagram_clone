@@ -63,42 +63,6 @@ class FanClubInfo extends Equatable {
     'subscriber_count': subscriberCount,
   };
 
-  FanClubInfo copyWith({
-    dynamic autosaveToExclusiveHighlight,
-    dynamic connectedMemberCount,
-    dynamic fanClubId,
-    dynamic fanClubName,
-    dynamic fanConsiderationPageRevampEligiblity,
-    dynamic hasCreatedSsc,
-    dynamic hasEnoughSubscribersForSsc,
-    dynamic isFanClubGiftingEligible,
-    dynamic isFanClubReferralEligible,
-    dynamic isFreeTrialEligible,
-    dynamic largestPublicBcId,
-    dynamic subscriberCount,
-  }) {
-    return FanClubInfo(
-      autosaveToExclusiveHighlight:
-          autosaveToExclusiveHighlight ?? this.autosaveToExclusiveHighlight,
-      connectedMemberCount: connectedMemberCount ?? this.connectedMemberCount,
-      fanClubId: fanClubId ?? this.fanClubId,
-      fanClubName: fanClubName ?? this.fanClubName,
-      fanConsiderationPageRevampEligiblity:
-          fanConsiderationPageRevampEligiblity ??
-          this.fanConsiderationPageRevampEligiblity,
-      hasCreatedSsc: hasCreatedSsc ?? this.hasCreatedSsc,
-      hasEnoughSubscribersForSsc:
-          hasEnoughSubscribersForSsc ?? this.hasEnoughSubscribersForSsc,
-      isFanClubGiftingEligible:
-          isFanClubGiftingEligible ?? this.isFanClubGiftingEligible,
-      isFanClubReferralEligible:
-          isFanClubReferralEligible ?? this.isFanClubReferralEligible,
-      isFreeTrialEligible: isFreeTrialEligible ?? this.isFreeTrialEligible,
-      largestPublicBcId: largestPublicBcId ?? this.largestPublicBcId,
-      subscriberCount: subscriberCount ?? this.subscriberCount,
-    );
-  }
-
   @override
   List<Object?> get props {
     return [

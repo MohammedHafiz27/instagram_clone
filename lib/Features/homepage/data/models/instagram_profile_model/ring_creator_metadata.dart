@@ -2,10 +2,14 @@ class RingCreatorMetadata {
   RingCreatorMetadata();
 
   factory RingCreatorMetadata.fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError('RingCreatorMetadata.fromJson($json) is not implemented');
+    // TODO: implement fromJson
+    throw UnimplementedError(
+      'RingCreatorMetadata.fromJson($json) is not implemented',
+    );
   }
 
   Map<String, dynamic> toJson() {
+    // TODO: implement toJson
     throw UnimplementedError();
   }
 }

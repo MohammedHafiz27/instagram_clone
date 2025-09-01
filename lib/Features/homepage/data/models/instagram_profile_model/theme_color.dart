@@ -27,16 +27,6 @@ class ThemeColor extends Equatable {
     'selected_theme_color': selectedThemeColor?.toJson(),
   };
 
-  ThemeColor copyWith({
-    List<AvailableThemeColor>? availableThemeColors,
-    SelectedThemeColor? selectedThemeColor,
-  }) {
-    return ThemeColor(
-      availableThemeColors: availableThemeColors ?? this.availableThemeColors,
-      selectedThemeColor: selectedThemeColor ?? this.selectedThemeColor,
-    );
-  }
-
   @override
   List<Object?> get props => [availableThemeColors, selectedThemeColor];
 }

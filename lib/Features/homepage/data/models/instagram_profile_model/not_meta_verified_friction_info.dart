@@ -22,17 +22,6 @@ class NotMetaVerifiedFrictionInfo extends Equatable {
     'label_friction_content': labelFrictionContent,
   };
 
-  NotMetaVerifiedFrictionInfo copyWith({
-    bool? isEligibleForLabelFriction,
-    String? labelFrictionContent,
-  }) {
-    return NotMetaVerifiedFrictionInfo(
-      isEligibleForLabelFriction:
-          isEligibleForLabelFriction ?? this.isEligibleForLabelFriction,
-      labelFrictionContent: labelFrictionContent ?? this.labelFrictionContent,
-    );
-  }
-
   @override
   List<Object?> get props {
     return [isEligibleForLabelFriction, labelFrictionContent];

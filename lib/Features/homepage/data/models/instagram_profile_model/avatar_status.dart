@@ -10,10 +10,6 @@ class AvatarStatus extends Equatable {
 
   Map<String, dynamic> toJson() => {'has_avatar': hasAvatar};
 
-  AvatarStatus copyWith({bool? hasAvatar}) {
-    return AvatarStatus(hasAvatar: hasAvatar ?? this.hasAvatar);
-  }
-
   @override
   List<Object?> get props => [hasAvatar];
 }

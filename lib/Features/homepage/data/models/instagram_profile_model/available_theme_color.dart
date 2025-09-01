@@ -18,13 +18,6 @@ class AvailableThemeColor extends Equatable {
     'int_value': intValue,
   };
 
-  AvailableThemeColor copyWith({String? displayLabel, int? intValue}) {
-    return AvailableThemeColor(
-      displayLabel: displayLabel ?? this.displayLabel,
-      intValue: intValue ?? this.intValue,
-    );
-  }
-
   @override
   List<Object?> get props => [displayLabel, intValue];
 }

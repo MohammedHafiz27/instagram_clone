@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Core/widgets/custom_elevated_button.dart';
+import 'package:instagram_clone/Features/homepage/presentation/view_models/instagram_profile_cubit/instagram_profile_cubit.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/widgets/custom_text_field.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -26,18 +29,33 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
             SizedBox(height: 50),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Enter User Name :",
-                style: AppStyles.styleSemiBold24(context),
-              ),
+              child: Text("Enter User Name :", style: AppStyles.styleSemiBold24(context)),
             ),
             SizedBox(height: 20),
-            CustomTextField(
-              userNameController: userNameController,
-              hintText: 'Enter User Name',
-            ),
+            CustomTextField(userNameController: userNameController, hintText: 'Enter User Name'),
             SizedBox(height: 20),
-            CustomElevatedButton(onPressed: () {}),
+            BlocConsumer<InstagramProfileCubit, InstagramProfileState>(
+              listener: (context, state) {
+                if (state is InstagramProfileFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+                } else if (state is InstagramProfileSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Profile fetched successfully")));
+                }
+              },
+              builder: (context, state) {
+                return AbsorbPointer(
+                  absorbing: state is InstagramProfileLoading,
+                  child: CustomElevatedButton(
+                    onPressed: () async {
+                      await context.read<InstagramProfileCubit>().getInstagramProfile(userNameController.text);
+                    },
+                    child: state is InstagramProfileLoading
+                        ? SpinKitWave(color: Colors.white, size: 20)
+                        : Text("Submit", style: AppStyles.styleRegular20(context)),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),

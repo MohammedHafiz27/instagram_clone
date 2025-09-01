@@ -21,14 +21,6 @@ class HdProfilePicUrlInfo extends Equatable {
     'width': width,
   };
 
-  HdProfilePicUrlInfo copyWith({int? height, String? url, int? width}) {
-    return HdProfilePicUrlInfo(
-      height: height ?? this.height,
-      url: url ?? this.url,
-      width: width ?? this.width,
-    );
-  }
-
   @override
   List<Object?> get props => [height, url, width];
 }

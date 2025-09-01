@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'theme_color.dart';
 
 class Nametag extends Equatable {
-  final List<int>? availableThemeColors;
+  final List<dynamic>? availableThemeColors;
   final String? backgroundImageUrl;
   final String? emoji;
   final int? emojiColor;
@@ -30,7 +30,7 @@ class Nametag extends Equatable {
   });
 
   factory Nametag.fromJson(Map<String, dynamic> json) => Nametag(
-    availableThemeColors: json['available_theme_colors'] as List<int>?,
+    availableThemeColors: json['available_theme_colors'],
     backgroundImageUrl: json['background_image_url'] as String?,
     emoji: json['emoji'] as String?,
     emojiColor: json['emoji_color'] as int?,
@@ -40,9 +40,7 @@ class Nametag extends Equatable {
     selectedThemeColor: json['selected_theme_color'] as int?,
     selfieSticker: json['selfie_sticker'] as int?,
     selfieUrl: json['selfie_url'] as String?,
-    themeColor: json['theme_color'] == null
-        ? null
-        : ThemeColor.fromJson(json['theme_color'] as Map<String, dynamic>),
+    themeColor: json['theme_color'] == null ? null : ThemeColor.fromJson(json['theme_color'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {
@@ -58,35 +56,6 @@ class Nametag extends Equatable {
     'selfie_url': selfieUrl,
     'theme_color': themeColor?.toJson(),
   };
-
-  Nametag copyWith({
-    List<int>? availableThemeColors,
-    String? backgroundImageUrl,
-    String? emoji,
-    int? emojiColor,
-    int? gradient,
-    bool? isBackgroundImageBlurred,
-    int? mode,
-    int? selectedThemeColor,
-    int? selfieSticker,
-    String? selfieUrl,
-    ThemeColor? themeColor,
-  }) {
-    return Nametag(
-      availableThemeColors: availableThemeColors ?? this.availableThemeColors,
-      backgroundImageUrl: backgroundImageUrl ?? this.backgroundImageUrl,
-      emoji: emoji ?? this.emoji,
-      emojiColor: emojiColor ?? this.emojiColor,
-      gradient: gradient ?? this.gradient,
-      isBackgroundImageBlurred:
-          isBackgroundImageBlurred ?? this.isBackgroundImageBlurred,
-      mode: mode ?? this.mode,
-      selectedThemeColor: selectedThemeColor ?? this.selectedThemeColor,
-      selfieSticker: selfieSticker ?? this.selfieSticker,
-      selfieUrl: selfieUrl ?? this.selfieUrl,
-      themeColor: themeColor ?? this.themeColor,
-    );
-  }
 
   @override
   List<Object?> get props {

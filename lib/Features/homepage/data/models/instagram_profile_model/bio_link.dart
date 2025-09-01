@@ -64,40 +64,6 @@ class BioLink extends Equatable {
     'url': url,
   };
 
-  BioLink copyWith({
-    String? creationSource,
-    String? iconUrl,
-    String? imageUrl,
-    bool? isPinned,
-    bool? isVerified,
-    int? linkId,
-    String? linkType,
-    String? lynxUrl,
-    String? mediaAccentColorHex,
-    String? mediaType,
-    bool? openExternalUrlWithInAppBrowser,
-    String? title,
-    String? url,
-  }) {
-    return BioLink(
-      creationSource: creationSource ?? this.creationSource,
-      iconUrl: iconUrl ?? this.iconUrl,
-      imageUrl: imageUrl ?? this.imageUrl,
-      isPinned: isPinned ?? this.isPinned,
-      isVerified: isVerified ?? this.isVerified,
-      linkId: linkId ?? this.linkId,
-      linkType: linkType ?? this.linkType,
-      lynxUrl: lynxUrl ?? this.lynxUrl,
-      mediaAccentColorHex: mediaAccentColorHex ?? this.mediaAccentColorHex,
-      mediaType: mediaType ?? this.mediaType,
-      openExternalUrlWithInAppBrowser:
-          openExternalUrlWithInAppBrowser ??
-          this.openExternalUrlWithInAppBrowser,
-      title: title ?? this.title,
-      url: url ?? this.url,
-    );
-  }
-
   @override
   List<Object?> get props {
     return [

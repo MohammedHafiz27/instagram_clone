@@ -3,7 +3,12 @@ import 'package:instagram_clone/Core/utils/app_styles.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final void Function()? onPressed;
-  const CustomElevatedButton({super.key, required this.onPressed});
+  final Widget child;
+  const CustomElevatedButton({
+    super.key,
+    required this.onPressed,
+    required this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: Colors.blue,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-      child: Text("Submit", style: AppStyles.styleRegular20(context)),
+      child: child,
     );
   }
 }

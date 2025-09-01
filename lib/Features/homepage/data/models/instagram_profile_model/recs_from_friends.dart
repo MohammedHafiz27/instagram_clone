@@ -22,18 +22,6 @@ class RecsFromFriends extends Equatable {
     'recs_from_friends_entry_point_type': recsFromFriendsEntryPointType,
   };
 
-  RecsFromFriends copyWith({
-    bool? enableRecsFromFriends,
-    String? recsFromFriendsEntryPointType,
-  }) {
-    return RecsFromFriends(
-      enableRecsFromFriends:
-          enableRecsFromFriends ?? this.enableRecsFromFriends,
-      recsFromFriendsEntryPointType:
-          recsFromFriendsEntryPointType ?? this.recsFromFriendsEntryPointType,
-    );
-  }
-
   @override
   List<Object?> get props {
     return [enableRecsFromFriends, recsFromFriendsEntryPointType];

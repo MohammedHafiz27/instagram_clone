@@ -18,13 +18,6 @@ class ProfileOverlayInfo extends Equatable {
     'overlay_format': overlayFormat,
   };
 
-  ProfileOverlayInfo copyWith({dynamic bloksPayload, String? overlayFormat}) {
-    return ProfileOverlayInfo(
-      bloksPayload: bloksPayload ?? this.bloksPayload,
-      overlayFormat: overlayFormat ?? this.overlayFormat,
-    );
-  }
-
   @override
   List<Object?> get props => [bloksPayload, overlayFormat];
 }

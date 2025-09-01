@@ -13,12 +13,6 @@ class BroadcastChatPreferenceStatus extends Equatable {
 
   Map<String, dynamic> toJson() => {'json_response': jsonResponse};
 
-  BroadcastChatPreferenceStatus copyWith({String? jsonResponse}) {
-    return BroadcastChatPreferenceStatus(
-      jsonResponse: jsonResponse ?? this.jsonResponse,
-    );
-  }
-
   @override
   List<Object?> get props => [jsonResponse];
 }

@@ -18,16 +18,6 @@ class ActiveStandaloneFundraisers extends Equatable {
     'total_count': totalCount,
   };
 
-  ActiveStandaloneFundraisers copyWith({
-    List<dynamic>? fundraisers,
-    int? totalCount,
-  }) {
-    return ActiveStandaloneFundraisers(
-      fundraisers: fundraisers ?? this.fundraisers,
-      totalCount: totalCount ?? this.totalCount,
-    );
-  }
-
   @override
   List<Object?> get props => [fundraisers, totalCount];
 }

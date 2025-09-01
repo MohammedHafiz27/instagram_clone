@@ -24,19 +24,6 @@ class MetaVerifiedBenefitsInfo extends Equatable {
         isEligibleForMetaVerifiedContentProtection,
   };
 
-  MetaVerifiedBenefitsInfo copyWith({
-    List<dynamic>? activeMetaVerifiedBenefits,
-    bool? isEligibleForMetaVerifiedContentProtection,
-  }) {
-    return MetaVerifiedBenefitsInfo(
-      activeMetaVerifiedBenefits:
-          activeMetaVerifiedBenefits ?? this.activeMetaVerifiedBenefits,
-      isEligibleForMetaVerifiedContentProtection:
-          isEligibleForMetaVerifiedContentProtection ??
-          this.isEligibleForMetaVerifiedContentProtection,
-    );
-  }
-
   @override
   List<Object?> get props {
     return [
