@@ -10,9 +10,13 @@ class HomepageRepoImple implements HomepageRepo {
   final ApiService apiService;
 
   @override
-  Future<Either<Failure, InstagramProfileModel>> getInstagramProfile(String username) async {
+  Future<Either<Failure, InstagramProfileModel>> getInstagramProfile(
+    String username,
+  ) async {
     try {
-      var data = await apiService.getData("/v1/info?username_or_id_or_url=$username&amount=100");
+      var data = await apiService.getData(
+        "/v1/info?username_or_id_or_url=$username&amount=100",
+      );
       return Right(InstagramProfileModel.fromJson(data));
     } catch (e) {
       if (e is DioException) {

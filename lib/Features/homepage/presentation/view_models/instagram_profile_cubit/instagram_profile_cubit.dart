@@ -9,7 +9,8 @@ import 'package:instagram_clone/Features/user_page/data/repos/user_page_repo.dar
 part 'instagram_profile_state.dart';
 
 class InstagramProfileCubit extends Cubit<InstagramProfileState> {
-  InstagramProfileCubit(this.homepageRepo, this.userPageRepo) : super(InstagramProfileInitial());
+  InstagramProfileCubit(this.homepageRepo, this.userPageRepo)
+    : super(InstagramProfileInitial());
   final HomepageRepo homepageRepo;
   final UserPageRepo userPageRepo;
 
@@ -20,12 +21,27 @@ class InstagramProfileCubit extends Cubit<InstagramProfileState> {
     final followersResult = await userPageRepo.getFollowers(userId: username);
     final followingResult = await userPageRepo.getFollowing(userId: username);
 
-    profileResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (profile) {
-      followersResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (followers) {
-        followingResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (following) {
-          emit(InstagramProfileSuccess(profile: profile, followers: followers, following: following));
-        });
-      });
-    });
+    profileResult.fold(
+      (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+      (profile) {
+        followersResult.fold(
+          (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+          (followers) {
+            followingResult.fold(
+              (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+              (following) {
+                emit(
+                  InstagramProfileSuccess(
+                    profile: profile,
+                    followers: followers,
+                    following: following,
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 }
