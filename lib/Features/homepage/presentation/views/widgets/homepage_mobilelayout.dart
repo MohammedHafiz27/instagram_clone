@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:instagram_clone/Core/utils/app_route.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Core/utils/show_snakebar.dart';
 import 'package:instagram_clone/Core/widgets/custom_elevated_button.dart';
@@ -40,8 +42,8 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                 if (state is InstagramProfileFailure) {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
-                  print(state.instagramProfile);
                   showSnackBar(context, message: "Profile fetched successfully");
+                  context.go(AppRoute.userpage, extra: state.instagramProfile);
                 }
               },
               builder: (context, state) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/user_page.dart';
 
@@ -17,7 +18,7 @@ abstract class AppRoute {
           GoRoute(
             path: userpage,
             builder: (BuildContext context, GoRouterState state) {
-              return const UserPage();
+              return UserPage(instagramProfileModel: state.extra as InstagramProfileModel);
             },
           ),
         ],

@@ -4,11 +4,7 @@ import 'package:instagram_clone/Core/utils/size_config.dart';
 class CustomAdaptiveLayout extends StatelessWidget {
   final WidgetBuilder mobileLayout, tabletLayout;
 
-  const CustomAdaptiveLayout({
-    super.key,
-    required this.mobileLayout,
-    required this.tabletLayout,
-  });
+  const CustomAdaptiveLayout({super.key, required this.mobileLayout, required this.tabletLayout});
 
   @override
   Widget build(BuildContext context) {
