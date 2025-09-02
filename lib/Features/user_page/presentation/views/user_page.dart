@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/custom_adaptive_layout.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_page_mobilelayout.dart';
 
 class UserPage extends StatelessWidget {
   final InstagramProfileModel instagramProfileModel;
   final FollowersModel followersModel;
   final FollowersModel followingModel;
+  final PostsReelsModel postsReelsModel;
   const UserPage({
     super.key,
     required this.instagramProfileModel,
     required this.followersModel,
     required this.followingModel,
+    required this.postsReelsModel,
   });
 
   @override
@@ -22,6 +25,7 @@ class UserPage extends StatelessWidget {
         instagramProfileModel: instagramProfileModel,
         followersModel: followersModel,
         followingModel: followingModel,
+        postsReelsModel: postsReelsModel,
       ),
       tabletLayout: (context) => SizedBox(),
     );

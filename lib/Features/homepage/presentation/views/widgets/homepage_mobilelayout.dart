@@ -32,32 +32,24 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
             SizedBox(height: 50),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Enter User Name :",
-                style: AppStyles.styleSemiBold18(context),
-              ),
+              child: Text("Enter User Name :", style: AppStyles.styleSemiBold18(context)),
             ),
             SizedBox(height: 20),
-            CustomTextField(
-              userNameController: userNameController,
-              hintText: 'Enter User Name',
-            ),
+            CustomTextField(userNameController: userNameController, hintText: 'Enter User Name'),
             SizedBox(height: 20),
             BlocConsumer<InstagramProfileCubit, InstagramProfileState>(
               listener: (context, state) {
                 if (state is InstagramProfileFailure) {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
-                  showSnackBar(
-                    context,
-                    message: "Profile fetched successfully",
-                  );
+                  showSnackBar(context, message: "Profile fetched successfully");
                   context.go(
                     AppRoute.userpage,
                     extra: {
                       'profile': state.profile,
                       'followers': state.followers,
                       'following': state.following,
+                      'postsReels': state.postsAndReels,
                     },
                   );
                 }
@@ -72,10 +64,7 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                     },
                     child: state is InstagramProfileLoading
                         ? SpinKitWave(color: Colors.white, size: 20)
-                        : Text(
-                            "Submit",
-                            style: AppStyles.styleRegular16(context),
-                          ),
+                        : Text("Submit", style: AppStyles.styleRegular16(context)),
                   ),
                 );
               },

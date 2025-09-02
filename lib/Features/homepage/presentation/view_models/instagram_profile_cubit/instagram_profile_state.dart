@@ -16,10 +16,12 @@ class InstagramProfileSuccess extends InstagramProfileState {
   final InstagramProfileModel profile;
   final FollowersModel followers;
   final FollowersModel following;
+  final PostsReelsModel postsAndReels;
 
   InstagramProfileSuccess({
     required this.profile,
     required this.followers,
     required this.following,
+    required this.postsAndReels,
   });
 }

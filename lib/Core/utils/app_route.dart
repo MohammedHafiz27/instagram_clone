@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
 import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/user_page.dart';
 
 abstract class AppRoute {
@@ -24,6 +25,7 @@ abstract class AppRoute {
                 instagramProfileModel: args['profile'] as InstagramProfileModel,
                 followersModel: args['followers'] as FollowersModel,
                 followingModel: args['following'] as FollowersModel,
+                postsReelsModel: args['postsReels'] as PostsReelsModel,
               );
             },
           ),

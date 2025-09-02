@@ -122,7 +122,7 @@ class Item extends Equatable {
   final bool? canModifyCarousel;
   final List<CarouselMedia>? carouselMedia;
   final int? carouselMediaCount;
-  final List<String>? carouselMediaIds;
+  final List<dynamic>? carouselMediaIds;
   final int? carouselMediaPendingPostCount;
   final String? openCarouselSubmissionState;
 
@@ -243,152 +243,108 @@ class Item extends Equatable {
     canReply: json['can_reply'] as bool?,
     canReshare: json['can_reshare'] as bool?,
     canSave: json['can_save'] as bool?,
-    caption: json['caption'] == null
-        ? null
-        : Caption.fromJson(json['caption'] as Map<String, dynamic>),
+    caption: json['caption'] == null ? null : Caption.fromJson(json['caption'] as Map<String, dynamic>),
     captionIsEdited: json['caption_is_edited'] as bool?,
     clipsTabPinnedUserIds: json['clips_tab_pinned_user_ids'] as List<dynamic>?,
-    coauthorProducerCanSeeOrganicInsights:
-        json['coauthor_producer_can_see_organic_insights'] as bool?,
+    coauthorProducerCanSeeOrganicInsights: json['coauthor_producer_can_see_organic_insights'] as bool?,
     coauthorProducers: json['coauthor_producers'] as List<dynamic>?,
     code: json['code'] as String?,
     collaboratorEditEligibility: json['collaborator_edit_eligibility'] as bool?,
     commentCount: json['comment_count'] as int?,
     commentInformTreatment: json['comment_inform_treatment'] == null
         ? null
-        : CommentInformTreatment.fromJson(
-            json['comment_inform_treatment'] as Map<String, dynamic>,
-          ),
+        : CommentInformTreatment.fromJson(json['comment_inform_treatment'] as Map<String, dynamic>),
     communityNotesInfo: json['community_notes_info'] == null
         ? null
-        : CommunityNotesInfo.fromJson(
-            json['community_notes_info'] as Map<String, dynamic>,
-          ),
+        : CommunityNotesInfo.fromJson(json['community_notes_info'] as Map<String, dynamic>),
     creativeConfig: json['creative_config'] as dynamic,
     crosspostMetadata: json['crosspost_metadata'] == null
         ? null
-        : CrosspostMetadata.fromJson(
-            json['crosspost_metadata'] as Map<String, dynamic>,
-          ),
+        : CrosspostMetadata.fromJson(json['crosspost_metadata'] as Map<String, dynamic>),
     cutoutStickerInfo: json['cutout_sticker_info'] as List<dynamic>?,
     deletedReason: json['deleted_reason'] as int?,
     deviceTimestamp: json['device_timestamp'] as int?,
-    fbUserTags: json['fb_user_tags'] == null
-        ? null
-        : FbUserTags.fromJson(json['fb_user_tags'] as Map<String, dynamic>),
+    fbUserTags: json['fb_user_tags'] == null ? null : FbUserTags.fromJson(json['fb_user_tags'] as Map<String, dynamic>),
     fbid: json['fbid'] as String?,
     featuredProducts: json['featured_products'] as List<dynamic>?,
     filterType: json['filter_type'] as int?,
     floatingContextItems: json['floating_context_items'] as List<dynamic>?,
     fundraiserTag: json['fundraiser_tag'] == null
         ? null
-        : FundraiserTag.fromJson(
-            json['fundraiser_tag'] as Map<String, dynamic>,
-          ),
+        : FundraiserTag.fromJson(json['fundraiser_tag'] as Map<String, dynamic>),
     genAiChatWithAiCtaInfo: json['gen_ai_chat_with_ai_cta_info'] as dynamic,
     genAiDetectionMethod: json['gen_ai_detection_method'] == null
         ? null
-        : GenAiDetectionMethod.fromJson(
-            json['gen_ai_detection_method'] as Map<String, dynamic>,
-          ),
-    hasHighRiskGenAiInformTreatment:
-        json['has_high_risk_gen_ai_inform_treatment'] as bool?,
+        : GenAiDetectionMethod.fromJson(json['gen_ai_detection_method'] as Map<String, dynamic>),
+    hasHighRiskGenAiInformTreatment: json['has_high_risk_gen_ai_inform_treatment'] as bool?,
     hasLiked: json['has_liked'] as bool?,
     hasPrivatelyLiked: json['has_privately_liked'] as bool?,
     hasSharedToFb: json['has_shared_to_fb'] as int?,
     hasViewsFetching: json['has_views_fetching'] as bool?,
-    hasViewsFetchingOnSearchGrid:
-        json['has_views_fetching_on_search_grid'] as bool?,
+    hasViewsFetchingOnSearchGrid: json['has_views_fetching_on_search_grid'] as bool?,
     hiddenLikesStringVariant: json['hidden_likes_string_variant'] as int?,
     id: json['id'] as String?,
     igMediaSharingDisabled: json['ig_media_sharing_disabled'] as bool?,
     igbioProduct: json['igbio_product'] as dynamic,
     imageVersions: json['image_versions'] == null
         ? null
-        : ImageVersions.fromJson(
-            json['image_versions'] as Map<String, dynamic>,
-          ),
-    inlineComposerDisplayCondition:
-        json['inline_composer_display_condition'] as String?,
-    inlineComposerImpTriggerTime:
-        json['inline_composer_imp_trigger_time'] as int?,
+        : ImageVersions.fromJson(json['image_versions'] as Map<String, dynamic>),
+    inlineComposerDisplayCondition: json['inline_composer_display_condition'] as String?,
+    inlineComposerImpTriggerTime: json['inline_composer_imp_trigger_time'] as int?,
     integrityReviewDecision: json['integrity_review_decision'] as String?,
-    invitedCoauthorProducers:
-        json['invited_coauthor_producers'] as List<dynamic>?,
-    isCommentsGifComposerEnabled:
-        json['is_comments_gif_composer_enabled'] as bool?,
+    invitedCoauthorProducers: json['invited_coauthor_producers'] as List<dynamic>?,
+    isCommentsGifComposerEnabled: json['is_comments_gif_composer_enabled'] as bool?,
     isCutoutStickerAllowed: json['is_cutout_sticker_allowed'] as bool?,
-    isEligibleContentForPostRollAd:
-        json['is_eligible_content_for_post_roll_ad'] as bool?,
+    isEligibleContentForPostRollAd: json['is_eligible_content_for_post_roll_ad'] as bool?,
     isInProfileGrid: json['is_in_profile_grid'] as bool?,
     isOpenToPublicSubmission: json['is_open_to_public_submission'] as bool?,
-    isOrganicProductTaggingEligible:
-        json['is_organic_product_tagging_eligible'] as bool?,
+    isOrganicProductTaggingEligible: json['is_organic_product_tagging_eligible'] as bool?,
     isPaidPartnership: json['is_paid_partnership'] as bool?,
     isPinned: json['is_pinned'] as bool?,
     isPostLiveClipsMedia: json['is_post_live_clips_media'] as bool?,
     isQuietPost: json['is_quiet_post'] as bool?,
-    isReshareOfTextPostAppMediaInIg:
-        json['is_reshare_of_text_post_app_media_in_ig'] as bool?,
+    isReshareOfTextPostAppMediaInIg: json['is_reshare_of_text_post_app_media_in_ig'] as bool?,
     isReuseAllowed: json['is_reuse_allowed'] as bool?,
     isSocialUfiDisabled: json['is_social_ufi_disabled'] as bool?,
-    isTaggedMediaSharedToViewerProfileGrid:
-        json['is_tagged_media_shared_to_viewer_profile_grid'] as bool?,
+    isTaggedMediaSharedToViewerProfileGrid: json['is_tagged_media_shared_to_viewer_profile_grid'] as bool?,
     isVideo: json['is_video'] as bool?,
     likeAndViewCountsDisabled: json['like_and_view_counts_disabled'] as bool?,
     likeCount: json['like_count'] as int?,
     location: json['location'] as dynamic,
-    mashupInfo: json['mashup_info'] == null
-        ? null
-        : MashupInfo.fromJson(json['mashup_info'] as Map<String, dynamic>),
+    mashupInfo: json['mashup_info'] == null ? null : MashupInfo.fromJson(json['mashup_info'] as Map<String, dynamic>),
     mediaAttributionsData: json['media_attributions_data'] as List<dynamic>?,
     mediaFormat: json['media_format'] as String?,
     mediaName: json['media_name'] as String?,
-    mediaNotes: json['media_notes'] == null
-        ? null
-        : MediaNotes.fromJson(json['media_notes'] as Map<String, dynamic>),
+    mediaNotes: json['media_notes'] == null ? null : MediaNotes.fromJson(json['media_notes'] as Map<String, dynamic>),
     mediaOverlayInfo: json['media_overlay_info'] as dynamic,
-    mediaReposterBottomsheetEnabled:
-        json['media_reposter_bottomsheet_enabled'] as bool?,
+    mediaReposterBottomsheetEnabled: json['media_reposter_bottomsheet_enabled'] as bool?,
     mediaType: json['media_type'] as int?,
     metaAiContextualVoiceData: json['meta_ai_contextual_voice_data'] == null
         ? null
-        : MetaAiContextualVoiceData.fromJson(
-            json['meta_ai_contextual_voice_data'] as Map<String, dynamic>,
-          ),
+        : MetaAiContextualVoiceData.fromJson(json['meta_ai_contextual_voice_data'] as Map<String, dynamic>),
     metaAiSuggestedPrompts: json['meta_ai_suggested_prompts'] as List<dynamic>?,
     musicMetadata: json['music_metadata'] == null
         ? null
-        : MusicMetadata.fromJson(
-            json['music_metadata'] as Map<String, dynamic>,
-          ),
-    openCarouselShowFollowButton:
-        json['open_carousel_show_follow_button'] as bool?,
+        : MusicMetadata.fromJson(json['music_metadata'] as Map<String, dynamic>),
+    openCarouselShowFollowButton: json['open_carousel_show_follow_button'] as bool?,
     originalHeight: json['original_height'] as int?,
     originalWidth: json['original_width'] as int?,
     previewComments: json['preview_comments'] as List<dynamic>?,
     productSuggestions: json['product_suggestions'] as List<dynamic>?,
     productType: json['product_type'] as String?,
-    profileGridThumbnailFittingStyle:
-        json['profile_grid_thumbnail_fitting_style'] as String?,
+    profileGridThumbnailFittingStyle: json['profile_grid_thumbnail_fitting_style'] as String?,
     relatedAdsPivotsMediaInfo: json['related_ads_pivots_media_info'] as String?,
-    reportInfo: json['report_info'] == null
-        ? null
-        : ReportInfo.fromJson(json['report_info'] as Map<String, dynamic>),
+    reportInfo: json['report_info'] == null ? null : ReportInfo.fromJson(json['report_info'] as Map<String, dynamic>),
     shareCount: json['share_count'] as int?,
     shareCountDisabled: json['share_count_disabled'] as bool?,
     sharingFrictionInfo: json['sharing_friction_info'] == null
         ? null
-        : SharingFrictionInfo.fromJson(
-            json['sharing_friction_info'] as Map<String, dynamic>,
-          ),
+        : SharingFrictionInfo.fromJson(json['sharing_friction_info'] as Map<String, dynamic>),
     shopRoutingUserId: json['shop_routing_user_id'] as dynamic,
     shouldShowAuthorPogForTaggedMediaSharedToProfileGrid:
-        json['should_show_author_pog_for_tagged_media_shared_to_profile_grid']
-            as bool?,
+        json['should_show_author_pog_for_tagged_media_shared_to_profile_grid'] as bool?,
     shouldShowPreviewCommentsOnlyAfterInlineExpansion:
-        json['should_show_preview_comments_only_after_inline_expansion']
-            as bool?,
+        json['should_show_preview_comments_only_after_inline_expansion'] as bool?,
     sponsorTags: json['sponsor_tags'] as List<dynamic>?,
     subscribeCtaVisible: json['subscribe_cta_visible'] as bool?,
     subtypeNameForRest: json['subtype_name_for_REST__'] as String?,
@@ -399,9 +355,7 @@ class Item extends Equatable {
     thumbnailUrl: json['thumbnail_url'] as String?,
     timelinePinnedUserIds: json['timeline_pinned_user_ids'] as List<dynamic>?,
     topLikers: json['top_likers'] as List<dynamic>?,
-    user: json['user'] == null
-        ? null
-        : User.fromJson(json['user'] as Map<String, dynamic>),
+    user: json['user'] == null ? null : User.fromJson(json['user'] as Map<String, dynamic>),
     videoStickerLocales: json['video_sticker_locales'] as List<dynamic>?,
     allPreviousSubmitters: json['all_previous_submitters'] as List<dynamic>?,
     canModifyCarousel: json['can_modify_carousel'] as bool?,
@@ -409,11 +363,9 @@ class Item extends Equatable {
         ?.map((e) => CarouselMedia.fromJson(e as Map<String, dynamic>))
         .toList(),
     carouselMediaCount: json['carousel_media_count'] as int?,
-    carouselMediaIds: json['carousel_media_ids'] as List<String>?,
-    carouselMediaPendingPostCount:
-        json['carousel_media_pending_post_count'] as int?,
-    openCarouselSubmissionState:
-        json['open_carousel_submission_state'] as String?,
+    carouselMediaIds: json['carousel_media_ids'],
+    carouselMediaPendingPostCount: json['carousel_media_pending_post_count'] as int?,
+    openCarouselSubmissionState: json['open_carousel_submission_state'] as String?,
   );
 
   Map<String, dynamic> toJson() => {
@@ -426,8 +378,7 @@ class Item extends Equatable {
     'caption': caption?.toJson(),
     'caption_is_edited': captionIsEdited,
     'clips_tab_pinned_user_ids': clipsTabPinnedUserIds,
-    'coauthor_producer_can_see_organic_insights':
-        coauthorProducerCanSeeOrganicInsights,
+    'coauthor_producer_can_see_organic_insights': coauthorProducerCanSeeOrganicInsights,
     'coauthor_producers': coauthorProducers,
     'code': code,
     'collaborator_edit_eligibility': collaboratorEditEligibility,
@@ -475,8 +426,7 @@ class Item extends Equatable {
     'is_reshare_of_text_post_app_media_in_ig': isReshareOfTextPostAppMediaInIg,
     'is_reuse_allowed': isReuseAllowed,
     'is_social_ufi_disabled': isSocialUfiDisabled,
-    'is_tagged_media_shared_to_viewer_profile_grid':
-        isTaggedMediaSharedToViewerProfileGrid,
+    'is_tagged_media_shared_to_viewer_profile_grid': isTaggedMediaSharedToViewerProfileGrid,
     'is_video': isVideo,
     'like_and_view_counts_disabled': likeAndViewCountsDisabled,
     'like_count': likeCount,
@@ -507,8 +457,7 @@ class Item extends Equatable {
     'shop_routing_user_id': shopRoutingUserId,
     'should_show_author_pog_for_tagged_media_shared_to_profile_grid':
         shouldShowAuthorPogForTaggedMediaSharedToProfileGrid,
-    'should_show_preview_comments_only_after_inline_expansion':
-        shouldShowPreviewCommentsOnlyAfterInlineExpansion,
+    'should_show_preview_comments_only_after_inline_expansion': shouldShowPreviewCommentsOnlyAfterInlineExpansion,
     'sponsor_tags': sponsorTags,
     'subscribe_cta_visible': subscribeCtaVisible,
     'subtype_name_for_REST__': subtypeNameForRest,
