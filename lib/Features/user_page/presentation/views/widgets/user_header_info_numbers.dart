@@ -3,13 +3,14 @@ import 'package:instagram_clone/Core/utils/app_styles.dart';
 
 class UserHeaderInfoNumbers extends StatelessWidget {
   final String secondTitle;
-  const UserHeaderInfoNumbers({super.key, required this.secondTitle});
+  final int? number;
+  const UserHeaderInfoNumbers({super.key, required this.secondTitle, required this.number});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("2", style: AppStyles.styleRegular16(context)),
+        Text(number?.toString() ?? "0", style: AppStyles.styleRegular16(context)),
         SizedBox(height: 4),
         Text(secondTitle, style: AppStyles.styleRegular16(context)),
       ],

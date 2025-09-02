@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
+import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/user_page.dart';
 
 abstract class AppRoute {
@@ -18,7 +19,12 @@ abstract class AppRoute {
           GoRoute(
             path: userpage,
             builder: (BuildContext context, GoRouterState state) {
-              return UserPage(instagramProfileModel: state.extra as InstagramProfileModel);
+              final args = state.extra as Map<String, dynamic>;
+              return UserPage(
+                instagramProfileModel: args['profile'] as InstagramProfileModel,
+                followersModel: args['followers'] as FollowersModel,
+                followingModel: args['following'] as FollowersModel,
+              );
             },
           ),
         ],

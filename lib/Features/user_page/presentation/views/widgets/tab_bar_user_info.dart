@@ -9,7 +9,8 @@ class TabBarUserInfo extends StatefulWidget {
   State<TabBarUserInfo> createState() => _TabBarUserInfoState();
 }
 
-class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
+class _TabBarUserInfoState extends State<TabBarUserInfo>
+    with SingleTickerProviderStateMixin {
   final List<String> img = [
     "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
     "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
@@ -62,7 +63,10 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                   childAspectRatio: 1.1 / 2,
                 ),
                 itemBuilder: (context, index) {
-                  return CachedNetworkImage(imageUrl: img[index], fit: BoxFit.cover);
+                  return CachedNetworkImage(
+                    imageUrl: img[index],
+                    fit: BoxFit.cover,
+                  );
                 },
               ),
               GridView.builder(
@@ -74,7 +78,10 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                   childAspectRatio: 0.9 / 1.6,
                 ),
                 itemBuilder: (context, index) {
-                  return CachedNetworkImage(imageUrl: img[index], fit: BoxFit.cover);
+                  return CachedNetworkImage(
+                    imageUrl: img[index],
+                    fit: BoxFit.cover,
+                  );
                 },
               ),
               Container(color: Colors.blue),

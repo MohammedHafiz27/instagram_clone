@@ -1,12 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_header_info_numbers.dart';
 
 class UserHeaderInfo extends StatelessWidget {
-  const UserHeaderInfo({super.key, required this.instagramProfileModel});
-
+  const UserHeaderInfo({
+    super.key,
+    required this.instagramProfileModel,
+    required this.followersModel,
+    required this.followingModel,
+  });
+  final FollowersModel followersModel;
   final InstagramProfileModel instagramProfileModel;
+  final FollowersModel followingModel;
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +38,9 @@ class UserHeaderInfo extends StatelessWidget {
             ),
           ),
 
-          UserHeaderInfoNumbers(secondTitle: 'posts'),
-          UserHeaderInfoNumbers(secondTitle: 'followers'),
-          UserHeaderInfoNumbers(secondTitle: 'following'),
+          UserHeaderInfoNumbers(secondTitle: 'followers', number: followersModel.data?.count),
+          // UserHeaderInfoNumbers(secondTitle: 'followers'),
+          UserHeaderInfoNumbers(secondTitle: 'following', number: followingModel.data?.count),
           SizedBox(width: 20),
         ],
       ),

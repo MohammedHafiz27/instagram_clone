@@ -43,7 +43,10 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
                   showSnackBar(context, message: "Profile fetched successfully");
-                  context.go(AppRoute.userpage, extra: state.instagramProfile);
+                  context.go(
+                    AppRoute.userpage,
+                    extra: {'profile': state.profile, 'followers': state.followers, 'following': state.following},
+                  );
                 }
               },
               builder: (context, state) {
@@ -51,7 +54,8 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                   absorbing: state is InstagramProfileLoading,
                   child: CustomElevatedButton(
                     onPressed: () async {
-                      await context.read<InstagramProfileCubit>().getInstagramProfile(userNameController.text);
+                      final cubit = context.read<InstagramProfileCubit>();
+                      await cubit.loadUserData(userNameController.text);
                     },
                     child: state is InstagramProfileLoading
                         ? SpinKitWave(color: Colors.white, size: 20)

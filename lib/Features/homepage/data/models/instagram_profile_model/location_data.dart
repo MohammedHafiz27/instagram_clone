@@ -41,6 +41,14 @@ class LocationData extends Equatable {
 
   @override
   List<Object?> get props {
-    return [addressStreet, cityId, cityName, instagramLocationId, latitude, longitude, zip];
+    return [
+      addressStreet,
+      cityId,
+      cityName,
+      instagramLocationId,
+      latitude,
+      longitude,
+      zip,
+    ];
   }
 }

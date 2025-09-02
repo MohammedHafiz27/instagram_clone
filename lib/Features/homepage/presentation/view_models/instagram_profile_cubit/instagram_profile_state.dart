@@ -1,18 +1,21 @@
+// instagram_profile_state.dart
 part of 'instagram_profile_cubit.dart';
 
-sealed class InstagramProfileState {}
+abstract class InstagramProfileState {}
 
-final class InstagramProfileInitial extends InstagramProfileState {}
+class InstagramProfileInitial extends InstagramProfileState {}
 
-final class InstagramProfileLoading extends InstagramProfileState {}
+class InstagramProfileLoading extends InstagramProfileState {}
 
-final class InstagramProfileSuccess extends InstagramProfileState {
-  InstagramProfileSuccess({required this.instagramProfile});
-
-  dynamic instagramProfile;
-}
-
-final class InstagramProfileFailure extends InstagramProfileState {
+class InstagramProfileFailure extends InstagramProfileState {
   final String errorMessage;
   InstagramProfileFailure(this.errorMessage);
+}
+
+class InstagramProfileSuccess extends InstagramProfileState {
+  final InstagramProfileModel profile;
+  final FollowersModel followers;
+  final FollowersModel following;
+
+  InstagramProfileSuccess({required this.profile, required this.followers, required this.following});
 }

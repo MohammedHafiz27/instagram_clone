@@ -1,20 +1,31 @@
 import 'package:bloc/bloc.dart';
+import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 
 import 'package:instagram_clone/Features/homepage/data/repos/homepage_repo.dart';
+import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
+
+import 'package:instagram_clone/Features/user_page/data/repos/user_page_repo.dart';
 
 part 'instagram_profile_state.dart';
 
 class InstagramProfileCubit extends Cubit<InstagramProfileState> {
-  InstagramProfileCubit(this.homepageRepo) : super(InstagramProfileInitial());
+  InstagramProfileCubit(this.homepageRepo, this.userPageRepo) : super(InstagramProfileInitial());
   final HomepageRepo homepageRepo;
+  final UserPageRepo userPageRepo;
 
-  Future<dynamic> getInstagramProfile(String username) async {
+  Future<void> loadUserData(String username) async {
     emit(InstagramProfileLoading());
 
-    var instagramProfile = await homepageRepo.getInstagramProfile(username);
-    instagramProfile.fold(
-      (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
-      (instagramProfile) => emit(InstagramProfileSuccess(instagramProfile: instagramProfile)),
-    );
+    final profileResult = await homepageRepo.getInstagramProfile(username);
+    final followersResult = await userPageRepo.getFollowers(userId: username);
+    final followingResult = await userPageRepo.getFollowing(userId: username);
+
+    profileResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (profile) {
+      followersResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (followers) {
+        followingResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (following) {
+          emit(InstagramProfileSuccess(profile: profile, followers: followers, following: following));
+        });
+      });
+    });
   }
 }

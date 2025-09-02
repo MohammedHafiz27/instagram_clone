@@ -11,12 +11,21 @@ class BioInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Never let your fear decide your fate", style: AppStyles.styleRegular14(context)),
+        Text(
+          "Never let your fear decide your fate",
+          style: AppStyles.styleRegular14(context),
+        ),
         Row(
           children: [
-            Transform.rotate(angle: -10, child: Icon(Ionicons.link_outline, color: Colors.white)),
+            Transform.rotate(
+              angle: -10,
+              child: Icon(Ionicons.link_outline, color: Colors.white),
+            ),
             SizedBox(width: 2),
-            Text("https://instagram.com/yourprofile", style: AppStyles.styleRegular14(context)),
+            Text(
+              "https://instagram.com/yourprofile",
+              style: AppStyles.styleRegular14(context),
+            ),
           ],
         ),
         SizedBox(height: 5),
@@ -26,7 +35,10 @@ class BioInfo extends StatelessWidget {
             SizedBox(width: 10),
             SizedBox(
               width: 220,
-              child: Text("Followed by vt444,a_evem,MohammedHafiz27", style: AppStyles.styleRegular14(context)),
+              child: Text(
+                "Followed by vt444,a_evem,MohammedHafiz27",
+                style: AppStyles.styleRegular14(context),
+              ),
             ),
           ],
         ),

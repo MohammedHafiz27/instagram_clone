@@ -1,8 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/bio_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/tab_bar_user_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_header_info.dart';
@@ -10,12 +10,26 @@ import 'package:instagram_clone/Features/user_page/presentation/views/widgets/us
 
 class UserPageMobilelayout extends StatelessWidget {
   final InstagramProfileModel instagramProfileModel;
-  const UserPageMobilelayout({super.key, required this.instagramProfileModel});
+  final FollowersModel followersModel;
+  final FollowersModel followingModel;
+  const UserPageMobilelayout({
+    super.key,
+    required this.instagramProfileModel,
+    required this.followersModel,
+    required this.followingModel,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            context.pop();
+          },
+          icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
+        ),
+        leadingWidth: 20,
         backgroundColor: Colors.transparent,
         title: Text(instagramProfileModel.data?.username ?? '', style: AppStyles.styleSemiBold18(context)),
         centerTitle: false,
@@ -28,7 +42,11 @@ class UserPageMobilelayout extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           children: [
-            UserHeaderInfo(instagramProfileModel: instagramProfileModel),
+            UserHeaderInfo(
+              instagramProfileModel: instagramProfileModel,
+              followersModel: followersModel,
+              followingModel: followingModel,
+            ),
             BioInfo(
               img: [
                 "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",

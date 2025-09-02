@@ -40,7 +40,9 @@ class Nametag extends Equatable {
     selectedThemeColor: json['selected_theme_color'] as int?,
     selfieSticker: json['selfie_sticker'] as int?,
     selfieUrl: json['selfie_url'] as String?,
-    themeColor: json['theme_color'] == null ? null : ThemeColor.fromJson(json['theme_color'] as Map<String, dynamic>),
+    themeColor: json['theme_color'] == null
+        ? null
+        : ThemeColor.fromJson(json['theme_color'] as Map<String, dynamic>),
   );
 
   Map<String, dynamic> toJson() => {

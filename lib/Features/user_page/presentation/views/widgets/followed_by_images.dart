@@ -18,9 +18,14 @@ class FollowedByImages extends StatelessWidget {
               left: i * 25,
               child: CachedNetworkImage(
                 imageUrl: img[i] ?? '',
-                imageBuilder: (context, imageProvider) => CircleAvatar(radius: 20, backgroundImage: imageProvider),
-                placeholder: (context, url) => CircleAvatar(radius: 20, child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => CircleAvatar(radius: 20, child: Icon(Icons.error)),
+                imageBuilder: (context, imageProvider) =>
+                    CircleAvatar(radius: 20, backgroundImage: imageProvider),
+                placeholder: (context, url) => CircleAvatar(
+                  radius: 20,
+                  child: CircularProgressIndicator(),
+                ),
+                errorWidget: (context, url, error) =>
+                    CircleAvatar(radius: 20, child: Icon(Icons.error)),
               ),
             ),
         ],
