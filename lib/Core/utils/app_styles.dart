@@ -2,19 +2,19 @@ import 'package:flutter/widgets.dart';
 import 'package:instagram_clone/Core/utils/size_config.dart';
 
 abstract class AppStyles {
-  static TextStyle styleSemiBold24(BuildContext context) {
+  static TextStyle styleSemiBold18(BuildContext context) {
     return TextStyle(
       color: Color(0xffffffff),
       fontWeight: FontWeight.w600,
-      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
     );
   }
 
-  static TextStyle styleRegular20(BuildContext context) {
+  static TextStyle styleRegular16(BuildContext context) {
     return TextStyle(
       color: Color(0xffffffff),
       fontWeight: FontWeight.w400,
-      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
     );
   }
 }

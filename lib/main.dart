@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
+import 'package:instagram_clone/Core/utils/app_route.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Homepage(),
+    return MaterialApp.router(
+      routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
