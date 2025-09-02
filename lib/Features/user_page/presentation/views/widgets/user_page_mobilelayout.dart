@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/bio_info.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/widgets/tab_bar_user_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_header_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_page_button.dart';
 
@@ -44,6 +47,8 @@ class UserPageMobilelayout extends StatelessWidget {
                 Expanded(flex: 2, child: UserPageButton(title: "Message")),
               ],
             ),
+            SizedBox(height: 8),
+            Expanded(child: TabBarUserInfo()),
           ],
         ),
       ),

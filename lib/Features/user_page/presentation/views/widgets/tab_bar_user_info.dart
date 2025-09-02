@@ -1,0 +1,87 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+class TabBarUserInfo extends StatefulWidget {
+  const TabBarUserInfo({super.key});
+
+  @override
+  State<TabBarUserInfo> createState() => _TabBarUserInfoState();
+}
+
+class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
+  final List<String> img = [
+    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+  ];
+
+  late TabController _tabController;
+  @override
+  void initState() {
+    _tabController = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        TabBar(
+          dividerColor: Colors.transparent,
+          indicatorSize: TabBarIndicatorSize.tab,
+          dragStartBehavior: DragStartBehavior.down,
+          labelColor: Colors.white,
+          indicator: BoxDecoration(
+            border: Border(bottom: BorderSide(color: Colors.white, width: 1)),
+          ),
+          unselectedLabelColor: Colors.grey,
+          controller: _tabController,
+          tabs: [
+            Tab(icon: Icon(Icons.grid_on_outlined)),
+            Tab(icon: Icon(Icons.video_library_outlined)),
+            Tab(icon: Icon(Icons.account_box_outlined)),
+          ],
+        ),
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              GridView.builder(
+                itemCount: img.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 1,
+                  crossAxisSpacing: 1,
+                  childAspectRatio: 1.1 / 2,
+                ),
+                itemBuilder: (context, index) {
+                  return CachedNetworkImage(imageUrl: img[index], fit: BoxFit.cover);
+                },
+              ),
+              GridView.builder(
+                itemCount: img.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 1,
+                  crossAxisSpacing: 1,
+                  childAspectRatio: 0.9 / 1.6,
+                ),
+                itemBuilder: (context, index) {
+                  return CachedNetworkImage(imageUrl: img[index], fit: BoxFit.cover);
+                },
+              ),
+              Container(color: Colors.blue),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
