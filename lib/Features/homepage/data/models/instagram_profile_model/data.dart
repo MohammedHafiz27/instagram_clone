@@ -18,7 +18,6 @@ import 'pinned_channels_info.dart';
 import 'profile_overlay_info.dart';
 import 'recon_features.dart';
 import 'recs_from_friends.dart';
-import 'ring_creator_metadata.dart';
 import 'trial_clips_rate_limiting.dart';
 
 class Data extends Equatable {
@@ -189,7 +188,6 @@ class Data extends Equatable {
   final List<dynamic>? relevantNewsRegulationLocations;
   final bool? removeMessageEntrypoint;
   final bool? requestContactEnabled;
-  final RingCreatorMetadata? ringCreatorMetadata;
   final String? sellerShoppableFeedType;
   final bool? shouldShowTaggedTab;
   final bool? showAccountTransparencyDetails;
@@ -380,7 +378,6 @@ class Data extends Equatable {
     this.relevantNewsRegulationLocations,
     this.removeMessageEntrypoint,
     this.requestContactEnabled,
-    this.ringCreatorMetadata,
     this.sellerShoppableFeedType,
     this.shouldShowTaggedTab,
     this.showAccountTransparencyDetails,
@@ -804,7 +801,6 @@ class Data extends Equatable {
     'relevant_news_regulation_locations': relevantNewsRegulationLocations,
     'remove_message_entrypoint': removeMessageEntrypoint,
     'request_contact_enabled': requestContactEnabled,
-    'ring_creator_metadata': ringCreatorMetadata?.toJson(),
     'seller_shoppable_feed_type': sellerShoppableFeedType,
     'should_show_tagged_tab': shouldShowTaggedTab,
     'show_account_transparency_details': showAccountTransparencyDetails,
@@ -998,7 +994,6 @@ class Data extends Equatable {
       relevantNewsRegulationLocations,
       removeMessageEntrypoint,
       requestContactEnabled,
-      ringCreatorMetadata,
       sellerShoppableFeedType,
       shouldShowTaggedTab,
       showAccountTransparencyDetails,

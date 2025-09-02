@@ -17,6 +17,14 @@ abstract class AppStyles {
       fontSize: getResponsiveFontSize(context, fontSize: 16),
     );
   }
+
+  static TextStyle styleRegular14(BuildContext context) {
+    return TextStyle(
+      color: Color(0xffffffff),
+      fontWeight: FontWeight.w400,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+    );
+  }
 }
 
 double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
