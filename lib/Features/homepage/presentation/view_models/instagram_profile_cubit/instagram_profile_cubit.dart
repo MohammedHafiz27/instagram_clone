@@ -23,33 +23,28 @@ class InstagramProfileCubit extends Cubit<InstagramProfileState> {
     final results = await Future.wait([
       homepageRepo.getInstagramProfile(username),
       userPageRepo.getFollowers(userId: username),
-      userPageRepo.getFollowing(userId: username),
       userPageRepo.getPostsAndReels(userId: username),
       userPageRepo.getReels(userId: username),
     ]);
     final profileResult = results[0] as Either<Failure, InstagramProfileModel>;
     final followersResult = results[1] as Either<Failure, FollowersModel>;
-    final followingResult = results[2] as Either<Failure, FollowersModel>;
-    final postsAndReelsResult = results[3] as Either<Failure, PostsReelsModel>;
-    final reelsResult = results[4] as Either<Failure, ReelsModel>;
+    final postsAndReelsResult = results[2] as Either<Failure, PostsReelsModel>;
+    final reelsResult = results[3] as Either<Failure, ReelsModel>;
 
     profileResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (profile) {
       followersResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (followers) {
-        followingResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (following) {
-          postsAndReelsResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (postsAndReels) {
-            reelsResult.fold(
-              (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
-              (reels) => emit(
-                InstagramProfileSuccess(
-                  profile: profile,
-                  followers: followers,
-                  following: following,
-                  postsAndReels: postsAndReels,
-                  reels: reels,
-                ),
+        postsAndReelsResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (postsAndReels) {
+          reelsResult.fold(
+            (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+            (reels) => emit(
+              InstagramProfileSuccess(
+                profile: profile,
+                followers: followers,
+                postsAndReels: postsAndReels,
+                reels: reels,
               ),
-            );
-          });
+            ),
+          );
         });
       });
     });

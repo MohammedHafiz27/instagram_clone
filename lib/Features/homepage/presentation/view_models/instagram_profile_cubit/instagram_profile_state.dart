@@ -15,7 +15,6 @@ class InstagramProfileFailure extends InstagramProfileState {
 class InstagramProfileSuccess extends InstagramProfileState {
   final InstagramProfileModel profile;
   final FollowersModel followers;
-  final FollowersModel following;
   final PostsReelsModel postsAndReels;
   final ReelsModel reels;
 
@@ -23,7 +22,6 @@ class InstagramProfileSuccess extends InstagramProfileState {
 
     required this.profile,
     required this.followers,
-    required this.following,
     required this.postsAndReels,
     required this.reels,
   });

@@ -48,7 +48,6 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                     extra: {
                       'profile': state.profile,
                       'followers': state.followers,
-                      'following': state.following,
                       'postsReels': state.postsAndReels,
                       'reels': state.reels,
                     },

@@ -13,14 +13,13 @@ import 'package:instagram_clone/Features/user_page/presentation/views/widgets/us
 class UserPageMobilelayout extends StatelessWidget {
   final InstagramProfileModel instagramProfileModel;
   final FollowersModel followersModel;
-  final FollowersModel followingModel;
   final PostsReelsModel postsReelsModel;
   final ReelsModel reelsModel;
   const UserPageMobilelayout({
     super.key,
     required this.instagramProfileModel,
     required this.followersModel,
-    required this.followingModel,
+
     required this.postsReelsModel,
     required this.reelsModel,
   });
@@ -51,7 +50,6 @@ class UserPageMobilelayout extends StatelessWidget {
             UserHeaderInfo(
               instagramProfileModel: instagramProfileModel,
               followersModel: followersModel,
-              followingModel: followingModel,
               postsReelsModel: postsReelsModel,
             ),
             BioInfo(instagramProfileModel: instagramProfileModel, followersModel: followersModel),

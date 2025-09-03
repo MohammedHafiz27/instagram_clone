@@ -24,18 +24,6 @@ class UserPageRepoImple implements UserPageRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, FollowersModel>> getFollowing({required String userId}) async {
-    try {
-      var response = await apiService.getData("/v1/following?username_or_id_or_url=$userId&amount=100");
-      return Right(FollowersModel.fromJson(response));
-    } catch (e) {
-      if (e is DioException) {
-        return Left(ServerFailure.fromDioError(e));
-      }
-      return Left(ServerFailure(errorMessage: e.toString()));
-    }
-  }
 
   @override
   Future<Either<Failure, PostsReelsModel>> getPostsAndReels({required String userId}) async {

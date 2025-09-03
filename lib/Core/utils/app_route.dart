@@ -28,7 +28,6 @@ abstract class AppRoute {
               return UserPage(
                 instagramProfileModel: args['profile'] as InstagramProfileModel,
                 followersModel: args['followers'] as FollowersModel,
-                followingModel: args['following'] as FollowersModel,
                 postsReelsModel: args['postsReels'] as PostsReelsModel,
                 reelsModel: args['reels'] as ReelsModel,
               );
@@ -37,7 +36,6 @@ abstract class AppRoute {
           GoRoute(
             path: videoPage,
             builder: (context, state) {
-              ;
               return VideoPage(videoDataReels: state.extra as ItemReels);
             },
           ),
