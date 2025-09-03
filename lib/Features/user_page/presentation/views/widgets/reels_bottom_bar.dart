@@ -3,7 +3,7 @@ import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Features/user_page/data/models/reels/item.dart';
 
 class ReelsBottomBar extends StatelessWidget {
-  final Item videoData;
+  final ItemReels videoData;
   const ReelsBottomBar({super.key, required this.videoData});
 
   @override
@@ -14,15 +14,9 @@ class ReelsBottomBar extends StatelessWidget {
         Row(
           children: [
             SizedBox(width: 20),
-            CircleAvatar(
-              radius: 20,
-              backgroundImage: NetworkImage(videoData.user!.profilePicUrl!),
-            ),
+            CircleAvatar(radius: 20, backgroundImage: NetworkImage(videoData.user!.profilePicUrl!)),
             SizedBox(width: 15),
-            Text(
-              videoData.user!.fullName!,
-              style: AppStyles.styleSemiBold18(context),
-            ),
+            Text(videoData.user!.fullName!, style: AppStyles.styleSemiBold18(context)),
           ],
         ),
         SizedBox(height: 10),
@@ -33,9 +27,7 @@ class ReelsBottomBar extends StatelessWidget {
               child: Text(
                 videoData.caption?.text ?? "",
                 maxLines: 3,
-                style: AppStyles.styleSemiBold18(
-                  context,
-                ).copyWith(overflow: TextOverflow.ellipsis),
+                style: AppStyles.styleSemiBold18(context).copyWith(overflow: TextOverflow.ellipsis),
               ),
             ),
           ],

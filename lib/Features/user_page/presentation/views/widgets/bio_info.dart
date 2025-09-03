@@ -6,11 +6,7 @@ import 'package:instagram_clone/Features/user_page/presentation/views/widgets/fo
 import 'package:ionicons/ionicons.dart';
 
 class BioInfo extends StatelessWidget {
-  const BioInfo({
-    super.key,
-    required this.instagramProfileModel,
-    required this.followersModel,
-  });
+  const BioInfo({super.key, required this.instagramProfileModel, required this.followersModel});
   final InstagramProfileModel instagramProfileModel;
   final FollowersModel followersModel;
   @override
@@ -18,21 +14,12 @@ class BioInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          instagramProfileModel.data?.biography ?? "",
-          style: AppStyles.styleRegular14(context),
-        ),
+        Text(instagramProfileModel.data?.biography ?? "", style: AppStyles.styleRegular14(context)),
         Row(
           children: [
-            Transform.rotate(
-              angle: -10,
-              child: Icon(Ionicons.link_outline, color: Colors.white),
-            ),
+            Transform.rotate(angle: -10, child: Icon(Ionicons.link_outline, color: Colors.white)),
             SizedBox(width: 2),
-            Text(
-              "https://instagram.com/yourprofile",
-              style: AppStyles.styleRegular14(context),
-            ),
+            Text(instagramProfileModel.data?.bioLinks?[0].url ?? "", style: AppStyles.styleRegular14(context)),
           ],
         ),
         SizedBox(height: 5),

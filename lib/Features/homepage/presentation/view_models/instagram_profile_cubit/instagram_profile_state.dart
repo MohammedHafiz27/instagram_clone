@@ -18,10 +18,9 @@ class InstagramProfileSuccess extends InstagramProfileState {
   final FollowersModel following;
   final PostsReelsModel postsAndReels;
   final ReelsModel reels;
-  final TaggedModel tagged;
 
   InstagramProfileSuccess({
-    required this.tagged,
+
     required this.profile,
     required this.followers,
     required this.following,

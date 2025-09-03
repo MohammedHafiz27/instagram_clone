@@ -6,30 +6,18 @@ import 'package:instagram_clone/Features/user_page/presentation/views/widgets/re
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/video_player_widget.dart';
 
 class VideoPage extends StatelessWidget {
-  final Item videoData;
-  const VideoPage({super.key, required this.videoData});
+  final ItemReels videoDataReels;
+  const VideoPage({super.key, required this.videoDataReels});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          ViedoPlayerWidget(videoUrl: videoData.videoUrl ?? ""),
-          SafeArea(
-            top: true,
-            child: Positioned(left: 20, right: 20, child: ReelsAppBar()),
-          ),
-          Positioned(
-            bottom: 190,
-            right: 10,
-            child: ReelsSideBar(videoData: videoData),
-          ),
-          Positioned(
-            bottom: 40,
-            left: 0,
-            right: 0,
-            child: ReelsBottomBar(videoData: videoData),
-          ),
+          ViedoPlayerWidget(videoUrl: videoDataReels.videoUrl ?? ""),
+          SafeArea(top: true, child: Positioned(left: 20, right: 20, child: ReelsAppBar())),
+          Positioned(bottom: 190, right: 10, child: ReelsSideBar(videoData: videoDataReels)),
+          Positioned(bottom: 40, left: 0, right: 0, child: ReelsBottomBar(videoData: videoDataReels)),
         ],
       ),
     );

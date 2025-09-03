@@ -37,7 +37,8 @@ abstract class AppRoute {
           GoRoute(
             path: videoPage,
             builder: (context, state) {
-              return VideoPage(videoData: state.extra as Item);
+              ;
+              return VideoPage(videoDataReels: state.extra as ItemReels);
             },
           ),
         ],
