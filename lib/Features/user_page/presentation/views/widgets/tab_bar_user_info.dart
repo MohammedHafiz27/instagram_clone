@@ -3,23 +3,18 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart';
 
 class TabBarUserInfo extends StatefulWidget {
   final PostsReelsModel postsReelsModel;
-  const TabBarUserInfo({super.key, required this.postsReelsModel});
+  final ReelsModel reelsModel;
+  const TabBarUserInfo({super.key, required this.postsReelsModel, required this.reelsModel});
 
   @override
   State<TabBarUserInfo> createState() => _TabBarUserInfoState();
 }
 
-class _TabBarUserInfoState extends State<TabBarUserInfo>
-    with SingleTickerProviderStateMixin {
-  // final List<String> img = [
-  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-  // ];
-
+class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
@@ -67,13 +62,7 @@ class _TabBarUserInfoState extends State<TabBarUserInfo>
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    imageUrl:
-                        widget
-                            .postsReelsModel
-                            .data
-                            ?.items?[index]
-                            .thumbnailUrl ??
-                        '',
+                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
                     fit: BoxFit.cover,
                   );
                 },
@@ -88,14 +77,8 @@ class _TabBarUserInfoState extends State<TabBarUserInfo>
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    placeholder: (context, url) => SpinKitCircle(),
-                    imageUrl:
-                        widget
-                            .postsReelsModel
-                            .data
-                            ?.items?[index]
-                            .thumbnailUrl ??
-                        '',
+                    placeholder: (context, url) => SpinKitCircle(color: Colors.white),
+                    imageUrl: widget.reelsModel.data?.items?[index].thumbnailUrl ?? '',
                     fit: BoxFit.cover,
                   );
                 },

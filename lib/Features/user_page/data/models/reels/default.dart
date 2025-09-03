@@ -5,7 +5,7 @@ class Default extends Equatable {
   final int? maxThumbnailsPerSprite;
   final int? renderedWidth;
   final int? spriteHeight;
-  final List<String>? spriteUrls;
+  final List<dynamic>? spriteUrls;
   final int? spriteWidth;
   final double? thumbnailDuration;
   final int? thumbnailHeight;
@@ -34,7 +34,7 @@ class Default extends Equatable {
     maxThumbnailsPerSprite: json['max_thumbnails_per_sprite'] as int?,
     renderedWidth: json['rendered_width'] as int?,
     spriteHeight: json['sprite_height'] as int?,
-    spriteUrls: json['sprite_urls'] as List<String>?,
+    spriteUrls: json['sprite_urls'],
     spriteWidth: json['sprite_width'] as int?,
     thumbnailDuration: (json['thumbnail_duration'] as num?)?.toDouble(),
     thumbnailHeight: json['thumbnail_height'] as int?,

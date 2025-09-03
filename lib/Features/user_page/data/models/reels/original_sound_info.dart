@@ -9,7 +9,7 @@ class OriginalSoundInfo extends Equatable {
   final dynamic attributedCustomAudioAssetId;
   final dynamic audioAssetStartTimeInMs;
   final List<dynamic>? audioFilterInfos;
-  final String? audioId;
+  final dynamic? audioId;
   final List<dynamic>? audioParts;
   final List<dynamic>? audioPartsByFilter;
   final bool? canRemixBeSharedToFb;
@@ -78,40 +78,29 @@ class OriginalSoundInfo extends Equatable {
   factory OriginalSoundInfo.fromJson(Map<String, dynamic> json) {
     return OriginalSoundInfo(
       allowCreatorToRename: json['allow_creator_to_rename'] as bool?,
-      attributedCustomAudioAssetId:
-          json['attributed_custom_audio_asset_id'] as dynamic,
+      attributedCustomAudioAssetId: json['attributed_custom_audio_asset_id'] as dynamic,
       audioAssetStartTimeInMs: json['audio_asset_start_time_in_ms'] as dynamic,
       audioFilterInfos: json['audio_filter_infos'] as List<dynamic>?,
-      audioId: json['audio_id'] as String?,
+      audioId: json['audio_id'],
       audioParts: json['audio_parts'] as List<dynamic>?,
       audioPartsByFilter: json['audio_parts_by_filter'] as List<dynamic>?,
       canRemixBeSharedToFb: json['can_remix_be_shared_to_fb'] as bool?,
-      canRemixBeSharedToFbExpansion:
-          json['can_remix_be_shared_to_fb_expansion'] as bool?,
+      canRemixBeSharedToFbExpansion: json['can_remix_be_shared_to_fb_expansion'] as bool?,
       consumptionInfo: json['consumption_info'] == null
           ? null
-          : ConsumptionInfo.fromJson(
-              json['consumption_info'] as Map<String, dynamic>,
-            ),
+          : ConsumptionInfo.fromJson(json['consumption_info'] as Map<String, dynamic>),
       durationInMs: json['duration_in_ms'] as int?,
-      fbDownstreamUseXpostMetadata:
-          json['fb_downstream_use_xpost_metadata'] == null
+      fbDownstreamUseXpostMetadata: json['fb_downstream_use_xpost_metadata'] == null
           ? null
-          : FbDownstreamUseXpostMetadata.fromJson(
-              json['fb_downstream_use_xpost_metadata'] as Map<String, dynamic>,
-            ),
+          : FbDownstreamUseXpostMetadata.fromJson(json['fb_downstream_use_xpost_metadata'] as Map<String, dynamic>),
       formattedClipsMediaCount: json['formatted_clips_media_count'] as dynamic,
       hideRemixing: json['hide_remixing'] as bool?,
-      igArtist: json['ig_artist'] == null
-          ? null
-          : IgArtist.fromJson(json['ig_artist'] as Map<String, dynamic>),
-      isAudioAutomaticallyAttributed:
-          json['is_audio_automatically_attributed'] as bool?,
+      igArtist: json['ig_artist'] == null ? null : IgArtist.fromJson(json['ig_artist'] as Map<String, dynamic>),
+      isAudioAutomaticallyAttributed: json['is_audio_automatically_attributed'] as bool?,
       isEligibleForAudioEffects: json['is_eligible_for_audio_effects'] as bool?,
       isEligibleForVinylSticker: json['is_eligible_for_vinyl_sticker'] as bool?,
       isExplicit: json['is_explicit'] as bool?,
-      isOriginalAudioDownloadEligible:
-          json['is_original_audio_download_eligible'] as bool?,
+      isOriginalAudioDownloadEligible: json['is_original_audio_download_eligible'] as bool?,
       isReuseDisabled: json['is_reuse_disabled'] as bool?,
       isXpostFromFb: json['is_xpost_from_fb'] as bool?,
       oaOwnerIsMusicArtist: json['oa_owner_is_music_artist'] as bool?,
