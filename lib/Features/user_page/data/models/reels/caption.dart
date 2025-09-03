@@ -54,7 +54,9 @@ class Caption extends Equatable {
     text: json['text'] as String?,
     textTranslation: json['text_translation'] as String?,
     type: json['type'] as int?,
-    user: json['user'] == null ? null : User.fromJson(json['user'] as Map<String, dynamic>),
+    user: json['user'] == null
+        ? null
+        : User.fromJson(json['user'] as Map<String, dynamic>),
     userId: json['user_id'] as String?,
   );
 

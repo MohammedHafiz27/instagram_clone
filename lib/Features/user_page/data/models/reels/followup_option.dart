@@ -7,7 +7,13 @@ class FollowupOption extends Equatable {
   final dynamic style;
   final String? text;
 
-  const FollowupOption({this.data, this.id, this.showIcon, this.style, this.text});
+  const FollowupOption({
+    this.data,
+    this.id,
+    this.showIcon,
+    this.style,
+    this.text,
+  });
 
   factory FollowupOption.fromJson(Map<String, dynamic> json) {
     return FollowupOption(
@@ -20,7 +26,13 @@ class FollowupOption extends Equatable {
     );
   }
 
-  Map<String, dynamic> toJson() => {'data': data, 'id': id, 'show_icon': showIcon, 'style': style, 'text': text};
+  Map<String, dynamic> toJson() => {
+    'data': data,
+    'id': id,
+    'show_icon': showIcon,
+    'style': style,
+    'text': text,
+  };
 
   @override
   List<Object?> get props {

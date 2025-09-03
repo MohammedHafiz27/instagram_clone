@@ -35,7 +35,9 @@ class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
         ? GestureDetector(
             onTap: () {
               setState(() {
-                _controller.value.isPlaying ? _controller.pause() : _controller.play();
+                _controller.value.isPlaying
+                    ? _controller.pause()
+                    : _controller.play();
               });
             },
             child: Expanded(child: VideoPlayer(_controller)),

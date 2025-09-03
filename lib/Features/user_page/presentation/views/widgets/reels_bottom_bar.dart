@@ -14,9 +14,15 @@ class ReelsBottomBar extends StatelessWidget {
         Row(
           children: [
             SizedBox(width: 20),
-            CircleAvatar(radius: 20, backgroundImage: NetworkImage(videoData.user!.profilePicUrl!)),
+            CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(videoData.user!.profilePicUrl!),
+            ),
             SizedBox(width: 15),
-            Text(videoData.user!.fullName!, style: AppStyles.styleSemiBold18(context)),
+            Text(
+              videoData.user!.fullName!,
+              style: AppStyles.styleSemiBold18(context),
+            ),
           ],
         ),
         SizedBox(height: 10),
@@ -27,7 +33,9 @@ class ReelsBottomBar extends StatelessWidget {
               child: Text(
                 videoData.caption?.text ?? "",
                 maxLines: 3,
-                style: AppStyles.styleSemiBold18(context).copyWith(overflow: TextOverflow.ellipsis),
+                style: AppStyles.styleSemiBold18(
+                  context,
+                ).copyWith(overflow: TextOverflow.ellipsis),
               ),
             ),
           ],

@@ -11,7 +11,9 @@ class UserPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(8)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusGeometry.circular(8),
+        ),
         backgroundColor: Colors.transparent,
         side: BorderSide(color: Colors.white, width: 1),
       ),

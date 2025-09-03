@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 
 import 'data.dart';
 
-class ReelsModel extends Equatable {
+class Tagged extends Equatable {
   final Data? data;
   final String? paginationToken;
 
-  const ReelsModel({this.data, this.paginationToken});
+  const Tagged({this.data, this.paginationToken});
 
-  factory ReelsModel.fromJson(Map<String, dynamic> json) => ReelsModel(
+  factory Tagged.fromJson(Map<String, dynamic> json) => Tagged(
     data: json['data'] == null
         ? null
         : Data.fromJson(json['data'] as Map<String, dynamic>),

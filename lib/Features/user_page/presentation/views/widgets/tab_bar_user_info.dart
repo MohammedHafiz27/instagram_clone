@@ -10,13 +10,18 @@ import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart'
 class TabBarUserInfo extends StatefulWidget {
   final PostsReelsModel postsReelsModel;
   final ReelsModel reelsModel;
-  const TabBarUserInfo({super.key, required this.postsReelsModel, required this.reelsModel});
+  const TabBarUserInfo({
+    super.key,
+    required this.postsReelsModel,
+    required this.reelsModel,
+  });
 
   @override
   State<TabBarUserInfo> createState() => _TabBarUserInfoState();
 }
 
-class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
+class _TabBarUserInfoState extends State<TabBarUserInfo>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   @override
   void initState() {
@@ -64,7 +69,13 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
+                    imageUrl:
+                        widget
+                            .postsReelsModel
+                            .data
+                            ?.items?[index]
+                            .thumbnailUrl ??
+                        '',
                     fit: BoxFit.cover,
                   );
                 },
@@ -79,11 +90,16 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () =>
-                        context.push(AppRoute.videoPage, extra: widget.reelsModel.data?.items?[index]),
+                    onTap: () => context.push(
+                      AppRoute.videoPage,
+                      extra: widget.reelsModel.data?.items?[index],
+                    ),
                     child: CachedNetworkImage(
-                      placeholder: (context, url) => SpinKitCircle(color: Colors.white),
-                      imageUrl: widget.reelsModel.data?.items?[index].thumbnailUrl ?? '',
+                      placeholder: (context, url) =>
+                          SpinKitCircle(color: Colors.white),
+                      imageUrl:
+                          widget.reelsModel.data?.items?[index].thumbnailUrl ??
+                          '',
                       fit: BoxFit.cover,
                     ),
                   );

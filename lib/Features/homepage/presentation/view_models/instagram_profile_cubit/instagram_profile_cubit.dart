@@ -13,7 +13,8 @@ import 'package:instagram_clone/Features/user_page/data/repos/user_page_repo.dar
 part 'instagram_profile_state.dart';
 
 class InstagramProfileCubit extends Cubit<InstagramProfileState> {
-  InstagramProfileCubit(this.homepageRepo, this.userPageRepo) : super(InstagramProfileInitial());
+  InstagramProfileCubit(this.homepageRepo, this.userPageRepo)
+    : super(InstagramProfileInitial());
   final HomepageRepo homepageRepo;
   final UserPageRepo userPageRepo;
 
@@ -33,25 +34,39 @@ class InstagramProfileCubit extends Cubit<InstagramProfileState> {
     final postsAndReelsResult = results[3] as Either<Failure, PostsReelsModel>;
     final reelsResult = results[4] as Either<Failure, ReelsModel>;
 
-    profileResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (profile) {
-      followersResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (followers) {
-        followingResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (following) {
-          postsAndReelsResult.fold((failure) => emit(InstagramProfileFailure(failure.errorMessage)), (postsAndReels) {
-            reelsResult.fold(
+    profileResult.fold(
+      (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+      (profile) {
+        followersResult.fold(
+          (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
+          (followers) {
+            followingResult.fold(
               (failure) => emit(InstagramProfileFailure(failure.errorMessage)),
-              (reels) => emit(
-                InstagramProfileSuccess(
-                  profile: profile,
-                  followers: followers,
-                  following: following,
-                  postsAndReels: postsAndReels,
-                  reels: reels,
-                ),
-              ),
+              (following) {
+                postsAndReelsResult.fold(
+                  (failure) =>
+                      emit(InstagramProfileFailure(failure.errorMessage)),
+                  (postsAndReels) {
+                    reelsResult.fold(
+                      (failure) =>
+                          emit(InstagramProfileFailure(failure.errorMessage)),
+                      (reels) => emit(
+                        InstagramProfileSuccess(
+                          profile: profile,
+                          followers: followers,
+                          following: following,
+                          postsAndReels: postsAndReels,
+                          reels: reels,
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
             );
-          });
-        });
-      });
-    });
+          },
+        );
+      },
+    );
   }
 }
