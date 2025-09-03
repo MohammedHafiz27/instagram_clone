@@ -4,7 +4,13 @@ import 'package:instagram_clone/Features/user_page/data/models/followers_model/f
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 
 abstract class UserPageRepo {
-  Future<Either<Failure, FollowersModel>> getFollowers({required String userId});
-  Future<Either<Failure, FollowersModel>> getFollowing({required String userId});
-  Future<Either<Failure, PostsReelsModel>> getPostsAndReels({required String userId});
+  Future<Either<Failure, FollowersModel>> getFollowers({
+    required String userId,
+  });
+  Future<Either<Failure, FollowersModel>> getFollowing({
+    required String userId,
+  });
+  Future<Either<Failure, PostsReelsModel>> getPostsAndReels({
+    required String userId,
+  });
 }

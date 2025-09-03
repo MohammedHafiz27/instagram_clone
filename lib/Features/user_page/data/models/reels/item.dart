@@ -1,23 +1,26 @@
 import 'package:equatable/equatable.dart';
 
 import 'caption.dart';
-import 'carousel_media.dart';
+import 'clips_metadata.dart';
+import 'collab_follow_button_info.dart';
 import 'comment_inform_treatment.dart';
 import 'community_notes_info.dart';
 import 'crosspost_metadata.dart';
+import 'explore_demotion_control.dart';
 import 'fb_user_tags.dart';
 import 'fundraiser_tag.dart';
 import 'gen_ai_detection_method.dart';
 import 'image_versions.dart';
-import 'mashup_info.dart';
 import 'media_notes.dart';
 import 'meta_ai_contextual_voice_data.dart';
-import 'music_metadata.dart';
 import 'report_info.dart';
 import 'sharing_friction_info.dart';
 import 'user.dart';
+import 'video_version.dart';
 
 class Item extends Equatable {
+  final bool? areRemixesCrosspostable;
+  final List<dynamic>? avatarStickers;
   final dynamic boostUnavailableIdentifier;
   final dynamic boostUnavailableReason;
   final dynamic boostUnavailableReasonV2;
@@ -26,6 +29,7 @@ class Item extends Equatable {
   final bool? canSave;
   final Caption? caption;
   final bool? captionIsEdited;
+  final ClipsMetadata? clipsMetadata;
   final List<dynamic>? clipsTabPinnedUserIds;
   final bool? coauthorProducerCanSeeOrganicInsights;
   final List<dynamic>? coauthorProducers;
@@ -33,12 +37,15 @@ class Item extends Equatable {
   final bool? collaboratorEditEligibility;
   final int? commentCount;
   final CommentInformTreatment? commentInformTreatment;
+  final String? commerceIntegrityReviewDecision;
   final CommunityNotesInfo? communityNotesInfo;
   final dynamic creativeConfig;
+  final List<dynamic>? creatorViewerInsights;
   final CrosspostMetadata? crosspostMetadata;
   final List<dynamic>? cutoutStickerInfo;
   final int? deletedReason;
   final int? deviceTimestamp;
+  final ExploreDemotionControl? exploreDemotionControl;
   final FbUserTags? fbUserTags;
   final String? fbid;
   final List<dynamic>? featuredProducts;
@@ -47,24 +54,27 @@ class Item extends Equatable {
   final FundraiserTag? fundraiserTag;
   final dynamic genAiChatWithAiCtaInfo;
   final GenAiDetectionMethod? genAiDetectionMethod;
+  final bool? hasAudio;
   final bool? hasHighRiskGenAiInformTreatment;
   final bool? hasLiked;
   final bool? hasPrivatelyLiked;
   final int? hasSharedToFb;
+  final bool? hasTaggedUsers;
   final bool? hasViewsFetching;
-  final bool? hasViewsFetchingOnSearchGrid;
   final int? hiddenLikesStringVariant;
   final String? id;
   final bool? igMediaSharingDisabled;
+  final int? igPlayCount;
   final dynamic igbioProduct;
   final ImageVersions? imageVersions;
-  final String? inlineComposerDisplayCondition;
-  final int? inlineComposerImpTriggerTime;
   final String? integrityReviewDecision;
   final List<dynamic>? invitedCoauthorProducers;
+  final bool? isArtistPick;
   final bool? isCommentsGifComposerEnabled;
   final bool? isCutoutStickerAllowed;
+  final int? isDashEligible;
   final bool? isEligibleContentForPostRollAd;
+  final bool? isEligibleForMetaAiShare;
   final bool? isInProfileGrid;
   final bool? isOpenToPublicSubmission;
   final bool? isOrganicProductTaggingEligible;
@@ -76,11 +86,11 @@ class Item extends Equatable {
   final bool? isReuseAllowed;
   final bool? isSocialUfiDisabled;
   final bool? isTaggedMediaSharedToViewerProfileGrid;
+  final bool? isThirdPartyDownloadsEligible;
   final bool? isVideo;
   final bool? likeAndViewCountsDisabled;
   final int? likeCount;
   final dynamic location;
-  final MashupInfo? mashupInfo;
   final List<dynamic>? mediaAttributionsData;
   final String? mediaFormat;
   final String? mediaName;
@@ -88,24 +98,26 @@ class Item extends Equatable {
   final dynamic mediaOverlayInfo;
   final bool? mediaReposterBottomsheetEnabled;
   final int? mediaType;
+  final List<dynamic>? mediaUiAttributionsData;
   final MetaAiContextualVoiceData? metaAiContextualVoiceData;
   final List<dynamic>? metaAiSuggestedPrompts;
-  final MusicMetadata? musicMetadata;
+  final dynamic musicMetadata;
+  final int? numberOfQualities;
   final bool? openCarouselShowFollowButton;
   final int? originalHeight;
   final int? originalWidth;
-  final List<dynamic>? previewComments;
+  final int? playCount;
   final List<dynamic>? productSuggestions;
   final String? productType;
-  final String? profileGridThumbnailFittingStyle;
   final String? relatedAdsPivotsMediaInfo;
   final ReportInfo? reportInfo;
-  final int? shareCount;
+  final int? reshareCount;
   final bool? shareCountDisabled;
   final SharingFrictionInfo? sharingFrictionInfo;
   final dynamic shopRoutingUserId;
   final bool? shouldShowAuthorPogForTaggedMediaSharedToProfileGrid;
   final bool? shouldShowPreviewCommentsOnlyAfterInlineExpansion;
+  final List<dynamic>? socialContext;
   final List<dynamic>? sponsorTags;
   final bool? subscribeCtaVisible;
   final String? subtypeNameForRest;
@@ -117,16 +129,19 @@ class Item extends Equatable {
   final List<dynamic>? timelinePinnedUserIds;
   final List<dynamic>? topLikers;
   final User? user;
+  final String? videoCodec;
+  final double? videoDuration;
   final List<dynamic>? videoStickerLocales;
-  final List<dynamic>? allPreviousSubmitters;
-  final bool? canModifyCarousel;
-  final List<CarouselMedia>? carouselMedia;
-  final int? carouselMediaCount;
-  final List<dynamic>? carouselMediaIds;
-  final int? carouselMediaPendingPostCount;
-  final String? openCarouselSubmissionState;
+  final String? videoSubtitlesLocale;
+  final String? videoSubtitlesUri;
+  final String? videoUrl;
+  final List<VideoVersion>? videoVersions;
+  final int? viewStateItemType;
+  final CollabFollowButtonInfo? collabFollowButtonInfo;
 
   const Item({
+    this.areRemixesCrosspostable,
+    this.avatarStickers,
     this.boostUnavailableIdentifier,
     this.boostUnavailableReason,
     this.boostUnavailableReasonV2,
@@ -135,6 +150,7 @@ class Item extends Equatable {
     this.canSave,
     this.caption,
     this.captionIsEdited,
+    this.clipsMetadata,
     this.clipsTabPinnedUserIds,
     this.coauthorProducerCanSeeOrganicInsights,
     this.coauthorProducers,
@@ -142,12 +158,15 @@ class Item extends Equatable {
     this.collaboratorEditEligibility,
     this.commentCount,
     this.commentInformTreatment,
+    this.commerceIntegrityReviewDecision,
     this.communityNotesInfo,
     this.creativeConfig,
+    this.creatorViewerInsights,
     this.crosspostMetadata,
     this.cutoutStickerInfo,
     this.deletedReason,
     this.deviceTimestamp,
+    this.exploreDemotionControl,
     this.fbUserTags,
     this.fbid,
     this.featuredProducts,
@@ -156,24 +175,27 @@ class Item extends Equatable {
     this.fundraiserTag,
     this.genAiChatWithAiCtaInfo,
     this.genAiDetectionMethod,
+    this.hasAudio,
     this.hasHighRiskGenAiInformTreatment,
     this.hasLiked,
     this.hasPrivatelyLiked,
     this.hasSharedToFb,
+    this.hasTaggedUsers,
     this.hasViewsFetching,
-    this.hasViewsFetchingOnSearchGrid,
     this.hiddenLikesStringVariant,
     this.id,
     this.igMediaSharingDisabled,
+    this.igPlayCount,
     this.igbioProduct,
     this.imageVersions,
-    this.inlineComposerDisplayCondition,
-    this.inlineComposerImpTriggerTime,
     this.integrityReviewDecision,
     this.invitedCoauthorProducers,
+    this.isArtistPick,
     this.isCommentsGifComposerEnabled,
     this.isCutoutStickerAllowed,
+    this.isDashEligible,
     this.isEligibleContentForPostRollAd,
+    this.isEligibleForMetaAiShare,
     this.isInProfileGrid,
     this.isOpenToPublicSubmission,
     this.isOrganicProductTaggingEligible,
@@ -185,11 +207,11 @@ class Item extends Equatable {
     this.isReuseAllowed,
     this.isSocialUfiDisabled,
     this.isTaggedMediaSharedToViewerProfileGrid,
+    this.isThirdPartyDownloadsEligible,
     this.isVideo,
     this.likeAndViewCountsDisabled,
     this.likeCount,
     this.location,
-    this.mashupInfo,
     this.mediaAttributionsData,
     this.mediaFormat,
     this.mediaName,
@@ -197,24 +219,26 @@ class Item extends Equatable {
     this.mediaOverlayInfo,
     this.mediaReposterBottomsheetEnabled,
     this.mediaType,
+    this.mediaUiAttributionsData,
     this.metaAiContextualVoiceData,
     this.metaAiSuggestedPrompts,
     this.musicMetadata,
+    this.numberOfQualities,
     this.openCarouselShowFollowButton,
     this.originalHeight,
     this.originalWidth,
-    this.previewComments,
+    this.playCount,
     this.productSuggestions,
     this.productType,
-    this.profileGridThumbnailFittingStyle,
     this.relatedAdsPivotsMediaInfo,
     this.reportInfo,
-    this.shareCount,
+    this.reshareCount,
     this.shareCountDisabled,
     this.sharingFrictionInfo,
     this.shopRoutingUserId,
     this.shouldShowAuthorPogForTaggedMediaSharedToProfileGrid,
     this.shouldShowPreviewCommentsOnlyAfterInlineExpansion,
+    this.socialContext,
     this.sponsorTags,
     this.subscribeCtaVisible,
     this.subtypeNameForRest,
@@ -226,17 +250,20 @@ class Item extends Equatable {
     this.timelinePinnedUserIds,
     this.topLikers,
     this.user,
+    this.videoCodec,
+    this.videoDuration,
     this.videoStickerLocales,
-    this.allPreviousSubmitters,
-    this.canModifyCarousel,
-    this.carouselMedia,
-    this.carouselMediaCount,
-    this.carouselMediaIds,
-    this.carouselMediaPendingPostCount,
-    this.openCarouselSubmissionState,
+    this.videoSubtitlesLocale,
+    this.videoSubtitlesUri,
+    this.videoUrl,
+    this.videoVersions,
+    this.viewStateItemType,
+    this.collabFollowButtonInfo,
   });
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
+    areRemixesCrosspostable: json['are_remixes_crosspostable'] as bool?,
+    avatarStickers: json['avatar_stickers'] as List<dynamic>?,
     boostUnavailableIdentifier: json['boost_unavailable_identifier'] as dynamic,
     boostUnavailableReason: json['boost_unavailable_reason'] as dynamic,
     boostUnavailableReasonV2: json['boost_unavailable_reason_v2'] as dynamic,
@@ -247,6 +274,11 @@ class Item extends Equatable {
         ? null
         : Caption.fromJson(json['caption'] as Map<String, dynamic>),
     captionIsEdited: json['caption_is_edited'] as bool?,
+    clipsMetadata: json['clips_metadata'] == null
+        ? null
+        : ClipsMetadata.fromJson(
+            json['clips_metadata'] as Map<String, dynamic>,
+          ),
     clipsTabPinnedUserIds: json['clips_tab_pinned_user_ids'] as List<dynamic>?,
     coauthorProducerCanSeeOrganicInsights:
         json['coauthor_producer_can_see_organic_insights'] as bool?,
@@ -259,12 +291,15 @@ class Item extends Equatable {
         : CommentInformTreatment.fromJson(
             json['comment_inform_treatment'] as Map<String, dynamic>,
           ),
+    commerceIntegrityReviewDecision:
+        json['commerce_integrity_review_decision'] as String?,
     communityNotesInfo: json['community_notes_info'] == null
         ? null
         : CommunityNotesInfo.fromJson(
             json['community_notes_info'] as Map<String, dynamic>,
           ),
     creativeConfig: json['creative_config'] as dynamic,
+    creatorViewerInsights: json['creator_viewer_insights'] as List<dynamic>?,
     crosspostMetadata: json['crosspost_metadata'] == null
         ? null
         : CrosspostMetadata.fromJson(
@@ -273,6 +308,11 @@ class Item extends Equatable {
     cutoutStickerInfo: json['cutout_sticker_info'] as List<dynamic>?,
     deletedReason: json['deleted_reason'] as int?,
     deviceTimestamp: json['device_timestamp'] as int?,
+    exploreDemotionControl: json['explore_demotion_control'] == null
+        ? null
+        : ExploreDemotionControl.fromJson(
+            json['explore_demotion_control'] as Map<String, dynamic>,
+          ),
     fbUserTags: json['fb_user_tags'] == null
         ? null
         : FbUserTags.fromJson(json['fb_user_tags'] as Map<String, dynamic>),
@@ -291,35 +331,35 @@ class Item extends Equatable {
         : GenAiDetectionMethod.fromJson(
             json['gen_ai_detection_method'] as Map<String, dynamic>,
           ),
+    hasAudio: json['has_audio'] as bool?,
     hasHighRiskGenAiInformTreatment:
         json['has_high_risk_gen_ai_inform_treatment'] as bool?,
     hasLiked: json['has_liked'] as bool?,
     hasPrivatelyLiked: json['has_privately_liked'] as bool?,
     hasSharedToFb: json['has_shared_to_fb'] as int?,
+    hasTaggedUsers: json['has_tagged_users'] as bool?,
     hasViewsFetching: json['has_views_fetching'] as bool?,
-    hasViewsFetchingOnSearchGrid:
-        json['has_views_fetching_on_search_grid'] as bool?,
     hiddenLikesStringVariant: json['hidden_likes_string_variant'] as int?,
     id: json['id'] as String?,
     igMediaSharingDisabled: json['ig_media_sharing_disabled'] as bool?,
+    igPlayCount: json['ig_play_count'] as int?,
     igbioProduct: json['igbio_product'] as dynamic,
     imageVersions: json['image_versions'] == null
         ? null
         : ImageVersions.fromJson(
             json['image_versions'] as Map<String, dynamic>,
           ),
-    inlineComposerDisplayCondition:
-        json['inline_composer_display_condition'] as String?,
-    inlineComposerImpTriggerTime:
-        json['inline_composer_imp_trigger_time'] as int?,
     integrityReviewDecision: json['integrity_review_decision'] as String?,
     invitedCoauthorProducers:
         json['invited_coauthor_producers'] as List<dynamic>?,
+    isArtistPick: json['is_artist_pick'] as bool?,
     isCommentsGifComposerEnabled:
         json['is_comments_gif_composer_enabled'] as bool?,
     isCutoutStickerAllowed: json['is_cutout_sticker_allowed'] as bool?,
+    isDashEligible: json['is_dash_eligible'] as int?,
     isEligibleContentForPostRollAd:
         json['is_eligible_content_for_post_roll_ad'] as bool?,
+    isEligibleForMetaAiShare: json['is_eligible_for_meta_ai_share'] as bool?,
     isInProfileGrid: json['is_in_profile_grid'] as bool?,
     isOpenToPublicSubmission: json['is_open_to_public_submission'] as bool?,
     isOrganicProductTaggingEligible:
@@ -334,13 +374,12 @@ class Item extends Equatable {
     isSocialUfiDisabled: json['is_social_ufi_disabled'] as bool?,
     isTaggedMediaSharedToViewerProfileGrid:
         json['is_tagged_media_shared_to_viewer_profile_grid'] as bool?,
+    isThirdPartyDownloadsEligible:
+        json['is_third_party_downloads_eligible'] as bool?,
     isVideo: json['is_video'] as bool?,
     likeAndViewCountsDisabled: json['like_and_view_counts_disabled'] as bool?,
     likeCount: json['like_count'] as int?,
     location: json['location'] as dynamic,
-    mashupInfo: json['mashup_info'] == null
-        ? null
-        : MashupInfo.fromJson(json['mashup_info'] as Map<String, dynamic>),
     mediaAttributionsData: json['media_attributions_data'] as List<dynamic>?,
     mediaFormat: json['media_format'] as String?,
     mediaName: json['media_name'] as String?,
@@ -351,31 +390,28 @@ class Item extends Equatable {
     mediaReposterBottomsheetEnabled:
         json['media_reposter_bottomsheet_enabled'] as bool?,
     mediaType: json['media_type'] as int?,
+    mediaUiAttributionsData:
+        json['media_ui_attributions_data'] as List<dynamic>?,
     metaAiContextualVoiceData: json['meta_ai_contextual_voice_data'] == null
         ? null
         : MetaAiContextualVoiceData.fromJson(
             json['meta_ai_contextual_voice_data'] as Map<String, dynamic>,
           ),
     metaAiSuggestedPrompts: json['meta_ai_suggested_prompts'] as List<dynamic>?,
-    musicMetadata: json['music_metadata'] == null
-        ? null
-        : MusicMetadata.fromJson(
-            json['music_metadata'] as Map<String, dynamic>,
-          ),
+    musicMetadata: json['music_metadata'] as dynamic,
+    numberOfQualities: json['number_of_qualities'] as int?,
     openCarouselShowFollowButton:
         json['open_carousel_show_follow_button'] as bool?,
     originalHeight: json['original_height'] as int?,
     originalWidth: json['original_width'] as int?,
-    previewComments: json['preview_comments'] as List<dynamic>?,
+    playCount: json['play_count'] as int?,
     productSuggestions: json['product_suggestions'] as List<dynamic>?,
     productType: json['product_type'] as String?,
-    profileGridThumbnailFittingStyle:
-        json['profile_grid_thumbnail_fitting_style'] as String?,
     relatedAdsPivotsMediaInfo: json['related_ads_pivots_media_info'] as String?,
     reportInfo: json['report_info'] == null
         ? null
         : ReportInfo.fromJson(json['report_info'] as Map<String, dynamic>),
-    shareCount: json['share_count'] as int?,
+    reshareCount: json['reshare_count'] as int?,
     shareCountDisabled: json['share_count_disabled'] as bool?,
     sharingFrictionInfo: json['sharing_friction_info'] == null
         ? null
@@ -389,6 +425,7 @@ class Item extends Equatable {
     shouldShowPreviewCommentsOnlyAfterInlineExpansion:
         json['should_show_preview_comments_only_after_inline_expansion']
             as bool?,
+    socialContext: json['social_context'] as List<dynamic>?,
     sponsorTags: json['sponsor_tags'] as List<dynamic>?,
     subscribeCtaVisible: json['subscribe_cta_visible'] as bool?,
     subtypeNameForRest: json['subtype_name_for_REST__'] as String?,
@@ -402,21 +439,26 @@ class Item extends Equatable {
     user: json['user'] == null
         ? null
         : User.fromJson(json['user'] as Map<String, dynamic>),
+    videoCodec: json['video_codec'] as String?,
+    videoDuration: (json['video_duration'] as num?)?.toDouble(),
     videoStickerLocales: json['video_sticker_locales'] as List<dynamic>?,
-    allPreviousSubmitters: json['all_previous_submitters'] as List<dynamic>?,
-    canModifyCarousel: json['can_modify_carousel'] as bool?,
-    carouselMedia: (json['carousel_media'] as List<dynamic>?)
-        ?.map((e) => CarouselMedia.fromJson(e as Map<String, dynamic>))
+    videoSubtitlesLocale: json['video_subtitles_locale'] as String?,
+    videoSubtitlesUri: json['video_subtitles_uri'] as String?,
+    videoUrl: json['video_url'] as String?,
+    videoVersions: (json['video_versions'] as List<dynamic>?)
+        ?.map((e) => VideoVersion.fromJson(e as Map<String, dynamic>))
         .toList(),
-    carouselMediaCount: json['carousel_media_count'] as int?,
-    carouselMediaIds: json['carousel_media_ids'],
-    carouselMediaPendingPostCount:
-        json['carousel_media_pending_post_count'] as int?,
-    openCarouselSubmissionState:
-        json['open_carousel_submission_state'] as String?,
+    viewStateItemType: json['view_state_item_type'] as int?,
+    collabFollowButtonInfo: json['collab_follow_button_info'] == null
+        ? null
+        : CollabFollowButtonInfo.fromJson(
+            json['collab_follow_button_info'] as Map<String, dynamic>,
+          ),
   );
 
   Map<String, dynamic> toJson() => {
+    'are_remixes_crosspostable': areRemixesCrosspostable,
+    'avatar_stickers': avatarStickers,
     'boost_unavailable_identifier': boostUnavailableIdentifier,
     'boost_unavailable_reason': boostUnavailableReason,
     'boost_unavailable_reason_v2': boostUnavailableReasonV2,
@@ -425,6 +467,7 @@ class Item extends Equatable {
     'can_save': canSave,
     'caption': caption?.toJson(),
     'caption_is_edited': captionIsEdited,
+    'clips_metadata': clipsMetadata?.toJson(),
     'clips_tab_pinned_user_ids': clipsTabPinnedUserIds,
     'coauthor_producer_can_see_organic_insights':
         coauthorProducerCanSeeOrganicInsights,
@@ -433,12 +476,15 @@ class Item extends Equatable {
     'collaborator_edit_eligibility': collaboratorEditEligibility,
     'comment_count': commentCount,
     'comment_inform_treatment': commentInformTreatment?.toJson(),
+    'commerce_integrity_review_decision': commerceIntegrityReviewDecision,
     'community_notes_info': communityNotesInfo?.toJson(),
     'creative_config': creativeConfig,
+    'creator_viewer_insights': creatorViewerInsights,
     'crosspost_metadata': crosspostMetadata?.toJson(),
     'cutout_sticker_info': cutoutStickerInfo,
     'deleted_reason': deletedReason,
     'device_timestamp': deviceTimestamp,
+    'explore_demotion_control': exploreDemotionControl?.toJson(),
     'fb_user_tags': fbUserTags?.toJson(),
     'fbid': fbid,
     'featured_products': featuredProducts,
@@ -447,24 +493,27 @@ class Item extends Equatable {
     'fundraiser_tag': fundraiserTag?.toJson(),
     'gen_ai_chat_with_ai_cta_info': genAiChatWithAiCtaInfo,
     'gen_ai_detection_method': genAiDetectionMethod?.toJson(),
+    'has_audio': hasAudio,
     'has_high_risk_gen_ai_inform_treatment': hasHighRiskGenAiInformTreatment,
     'has_liked': hasLiked,
     'has_privately_liked': hasPrivatelyLiked,
     'has_shared_to_fb': hasSharedToFb,
+    'has_tagged_users': hasTaggedUsers,
     'has_views_fetching': hasViewsFetching,
-    'has_views_fetching_on_search_grid': hasViewsFetchingOnSearchGrid,
     'hidden_likes_string_variant': hiddenLikesStringVariant,
     'id': id,
     'ig_media_sharing_disabled': igMediaSharingDisabled,
+    'ig_play_count': igPlayCount,
     'igbio_product': igbioProduct,
     'image_versions': imageVersions?.toJson(),
-    'inline_composer_display_condition': inlineComposerDisplayCondition,
-    'inline_composer_imp_trigger_time': inlineComposerImpTriggerTime,
     'integrity_review_decision': integrityReviewDecision,
     'invited_coauthor_producers': invitedCoauthorProducers,
+    'is_artist_pick': isArtistPick,
     'is_comments_gif_composer_enabled': isCommentsGifComposerEnabled,
     'is_cutout_sticker_allowed': isCutoutStickerAllowed,
+    'is_dash_eligible': isDashEligible,
     'is_eligible_content_for_post_roll_ad': isEligibleContentForPostRollAd,
+    'is_eligible_for_meta_ai_share': isEligibleForMetaAiShare,
     'is_in_profile_grid': isInProfileGrid,
     'is_open_to_public_submission': isOpenToPublicSubmission,
     'is_organic_product_tagging_eligible': isOrganicProductTaggingEligible,
@@ -477,11 +526,11 @@ class Item extends Equatable {
     'is_social_ufi_disabled': isSocialUfiDisabled,
     'is_tagged_media_shared_to_viewer_profile_grid':
         isTaggedMediaSharedToViewerProfileGrid,
+    'is_third_party_downloads_eligible': isThirdPartyDownloadsEligible,
     'is_video': isVideo,
     'like_and_view_counts_disabled': likeAndViewCountsDisabled,
     'like_count': likeCount,
     'location': location,
-    'mashup_info': mashupInfo?.toJson(),
     'media_attributions_data': mediaAttributionsData,
     'media_format': mediaFormat,
     'media_name': mediaName,
@@ -489,19 +538,20 @@ class Item extends Equatable {
     'media_overlay_info': mediaOverlayInfo,
     'media_reposter_bottomsheet_enabled': mediaReposterBottomsheetEnabled,
     'media_type': mediaType,
+    'media_ui_attributions_data': mediaUiAttributionsData,
     'meta_ai_contextual_voice_data': metaAiContextualVoiceData?.toJson(),
     'meta_ai_suggested_prompts': metaAiSuggestedPrompts,
-    'music_metadata': musicMetadata?.toJson(),
+    'music_metadata': musicMetadata,
+    'number_of_qualities': numberOfQualities,
     'open_carousel_show_follow_button': openCarouselShowFollowButton,
     'original_height': originalHeight,
     'original_width': originalWidth,
-    'preview_comments': previewComments,
+    'play_count': playCount,
     'product_suggestions': productSuggestions,
     'product_type': productType,
-    'profile_grid_thumbnail_fitting_style': profileGridThumbnailFittingStyle,
     'related_ads_pivots_media_info': relatedAdsPivotsMediaInfo,
     'report_info': reportInfo?.toJson(),
-    'share_count': shareCount,
+    'reshare_count': reshareCount,
     'share_count_disabled': shareCountDisabled,
     'sharing_friction_info': sharingFrictionInfo?.toJson(),
     'shop_routing_user_id': shopRoutingUserId,
@@ -509,6 +559,7 @@ class Item extends Equatable {
         shouldShowAuthorPogForTaggedMediaSharedToProfileGrid,
     'should_show_preview_comments_only_after_inline_expansion':
         shouldShowPreviewCommentsOnlyAfterInlineExpansion,
+    'social_context': socialContext,
     'sponsor_tags': sponsorTags,
     'subscribe_cta_visible': subscribeCtaVisible,
     'subtype_name_for_REST__': subtypeNameForRest,
@@ -520,19 +571,22 @@ class Item extends Equatable {
     'timeline_pinned_user_ids': timelinePinnedUserIds,
     'top_likers': topLikers,
     'user': user?.toJson(),
+    'video_codec': videoCodec,
+    'video_duration': videoDuration,
     'video_sticker_locales': videoStickerLocales,
-    'all_previous_submitters': allPreviousSubmitters,
-    'can_modify_carousel': canModifyCarousel,
-    'carousel_media': carouselMedia?.map((e) => e.toJson()).toList(),
-    'carousel_media_count': carouselMediaCount,
-    'carousel_media_ids': carouselMediaIds,
-    'carousel_media_pending_post_count': carouselMediaPendingPostCount,
-    'open_carousel_submission_state': openCarouselSubmissionState,
+    'video_subtitles_locale': videoSubtitlesLocale,
+    'video_subtitles_uri': videoSubtitlesUri,
+    'video_url': videoUrl,
+    'video_versions': videoVersions?.map((e) => e.toJson()).toList(),
+    'view_state_item_type': viewStateItemType,
+    'collab_follow_button_info': collabFollowButtonInfo?.toJson(),
   };
 
   @override
   List<Object?> get props {
     return [
+      areRemixesCrosspostable,
+      avatarStickers,
       boostUnavailableIdentifier,
       boostUnavailableReason,
       boostUnavailableReasonV2,
@@ -541,6 +595,7 @@ class Item extends Equatable {
       canSave,
       caption,
       captionIsEdited,
+      clipsMetadata,
       clipsTabPinnedUserIds,
       coauthorProducerCanSeeOrganicInsights,
       coauthorProducers,
@@ -548,12 +603,15 @@ class Item extends Equatable {
       collaboratorEditEligibility,
       commentCount,
       commentInformTreatment,
+      commerceIntegrityReviewDecision,
       communityNotesInfo,
       creativeConfig,
+      creatorViewerInsights,
       crosspostMetadata,
       cutoutStickerInfo,
       deletedReason,
       deviceTimestamp,
+      exploreDemotionControl,
       fbUserTags,
       fbid,
       featuredProducts,
@@ -562,24 +620,27 @@ class Item extends Equatable {
       fundraiserTag,
       genAiChatWithAiCtaInfo,
       genAiDetectionMethod,
+      hasAudio,
       hasHighRiskGenAiInformTreatment,
       hasLiked,
       hasPrivatelyLiked,
       hasSharedToFb,
+      hasTaggedUsers,
       hasViewsFetching,
-      hasViewsFetchingOnSearchGrid,
       hiddenLikesStringVariant,
       id,
       igMediaSharingDisabled,
+      igPlayCount,
       igbioProduct,
       imageVersions,
-      inlineComposerDisplayCondition,
-      inlineComposerImpTriggerTime,
       integrityReviewDecision,
       invitedCoauthorProducers,
+      isArtistPick,
       isCommentsGifComposerEnabled,
       isCutoutStickerAllowed,
+      isDashEligible,
       isEligibleContentForPostRollAd,
+      isEligibleForMetaAiShare,
       isInProfileGrid,
       isOpenToPublicSubmission,
       isOrganicProductTaggingEligible,
@@ -591,11 +652,11 @@ class Item extends Equatable {
       isReuseAllowed,
       isSocialUfiDisabled,
       isTaggedMediaSharedToViewerProfileGrid,
+      isThirdPartyDownloadsEligible,
       isVideo,
       likeAndViewCountsDisabled,
       likeCount,
       location,
-      mashupInfo,
       mediaAttributionsData,
       mediaFormat,
       mediaName,
@@ -603,24 +664,26 @@ class Item extends Equatable {
       mediaOverlayInfo,
       mediaReposterBottomsheetEnabled,
       mediaType,
+      mediaUiAttributionsData,
       metaAiContextualVoiceData,
       metaAiSuggestedPrompts,
       musicMetadata,
+      numberOfQualities,
       openCarouselShowFollowButton,
       originalHeight,
       originalWidth,
-      previewComments,
+      playCount,
       productSuggestions,
       productType,
-      profileGridThumbnailFittingStyle,
       relatedAdsPivotsMediaInfo,
       reportInfo,
-      shareCount,
+      reshareCount,
       shareCountDisabled,
       sharingFrictionInfo,
       shopRoutingUserId,
       shouldShowAuthorPogForTaggedMediaSharedToProfileGrid,
       shouldShowPreviewCommentsOnlyAfterInlineExpansion,
+      socialContext,
       sponsorTags,
       subscribeCtaVisible,
       subtypeNameForRest,
@@ -632,14 +695,15 @@ class Item extends Equatable {
       timelinePinnedUserIds,
       topLikers,
       user,
+      videoCodec,
+      videoDuration,
       videoStickerLocales,
-      allPreviousSubmitters,
-      canModifyCarousel,
-      carouselMedia,
-      carouselMediaCount,
-      carouselMediaIds,
-      carouselMediaPendingPostCount,
-      openCarouselSubmissionState,
+      videoSubtitlesLocale,
+      videoSubtitlesUri,
+      videoUrl,
+      videoVersions,
+      viewStateItemType,
+      collabFollowButtonInfo,
     ];
   }
 }

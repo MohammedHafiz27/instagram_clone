@@ -34,7 +34,10 @@ class UserPageMobilelayout extends StatelessWidget {
         ),
         leadingWidth: 20,
         backgroundColor: Colors.transparent,
-        title: Text(instagramProfileModel.data?.username ?? '', style: AppStyles.styleSemiBold18(context)),
+        title: Text(
+          instagramProfileModel.data?.username ?? '',
+          style: AppStyles.styleSemiBold18(context),
+        ),
         centerTitle: false,
         actions: [
           Icon(Icons.notifications_none, color: Colors.white),
@@ -51,14 +54,20 @@ class UserPageMobilelayout extends StatelessWidget {
               followingModel: followingModel,
               postsReelsModel: postsReelsModel,
             ),
-            BioInfo(instagramProfileModel: instagramProfileModel, followersModel: followersModel),
+            BioInfo(
+              instagramProfileModel: instagramProfileModel,
+              followersModel: followersModel,
+            ),
             SizedBox(height: 8),
             Row(
               spacing: 5,
               children: [
                 Expanded(
                   flex: 2,
-                  child: UserPageButton(title: "Following", icon: Icons.keyboard_arrow_down_sharp),
+                  child: UserPageButton(
+                    title: "Following",
+                    icon: Icons.keyboard_arrow_down_sharp,
+                  ),
                 ),
                 Expanded(flex: 2, child: UserPageButton(title: "Message")),
               ],

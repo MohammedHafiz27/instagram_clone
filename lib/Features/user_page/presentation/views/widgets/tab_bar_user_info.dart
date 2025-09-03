@@ -12,7 +12,8 @@ class TabBarUserInfo extends StatefulWidget {
   State<TabBarUserInfo> createState() => _TabBarUserInfoState();
 }
 
-class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
+class _TabBarUserInfoState extends State<TabBarUserInfo>
+    with SingleTickerProviderStateMixin {
   // final List<String> img = [
   //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
   //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
@@ -66,7 +67,13 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
+                    imageUrl:
+                        widget
+                            .postsReelsModel
+                            .data
+                            ?.items?[index]
+                            .thumbnailUrl ??
+                        '',
                     fit: BoxFit.cover,
                   );
                 },
@@ -82,7 +89,13 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
                     placeholder: (context, url) => SpinKitCircle(),
-                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
+                    imageUrl:
+                        widget
+                            .postsReelsModel
+                            .data
+                            ?.items?[index]
+                            .thumbnailUrl ??
+                        '',
                     fit: BoxFit.cover,
                   );
                 },
