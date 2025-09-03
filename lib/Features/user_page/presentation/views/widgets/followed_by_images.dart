@@ -1,10 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 
 class FollowedByImages extends StatelessWidget {
-  const FollowedByImages({super.key, required this.img});
-
-  final List img;
+  final FollowersModel followersModel;
+  const FollowedByImages({super.key, required this.followersModel});
+  List get img => [
+    followersModel.data?.items?[0].profilePicUrl,
+    followersModel.data?.items?[1].profilePicUrl,
+    followersModel.data?.items?[2].profilePicUrl,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +23,9 @@ class FollowedByImages extends StatelessWidget {
               left: i * 25,
               child: CachedNetworkImage(
                 imageUrl: img[i] ?? '',
-                imageBuilder: (context, imageProvider) =>
-                    CircleAvatar(radius: 20, backgroundImage: imageProvider),
-                placeholder: (context, url) => CircleAvatar(
-                  radius: 20,
-                  child: CircularProgressIndicator(),
-                ),
-                errorWidget: (context, url, error) =>
-                    CircleAvatar(radius: 20, child: Icon(Icons.error)),
+                imageBuilder: (context, imageProvider) => CircleAvatar(radius: 20, backgroundImage: imageProvider),
+                placeholder: (context, url) => CircleAvatar(radius: 20, child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => CircleAvatar(radius: 20, child: Icon(Icons.error)),
               ),
             ),
         ],

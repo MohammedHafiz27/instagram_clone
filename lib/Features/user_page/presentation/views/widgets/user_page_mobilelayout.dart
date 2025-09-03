@@ -51,13 +51,7 @@ class UserPageMobilelayout extends StatelessWidget {
               followingModel: followingModel,
               postsReelsModel: postsReelsModel,
             ),
-            BioInfo(
-              img: [
-                "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-                "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-                "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-              ],
-            ),
+            BioInfo(instagramProfileModel: instagramProfileModel, followersModel: followersModel),
             SizedBox(height: 8),
             Row(
               spacing: 5,

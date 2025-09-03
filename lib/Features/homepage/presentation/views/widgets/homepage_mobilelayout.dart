@@ -60,7 +60,11 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                   child: CustomElevatedButton(
                     onPressed: () async {
                       final cubit = context.read<InstagramProfileCubit>();
-                      await cubit.loadUserData(userNameController.text);
+                      if (userNameController.text.isNotEmpty) {
+                        await cubit.loadUserData(userNameController.text);
+                      } else {
+                        showSnackBar(context, message: "Please enter user name");
+                      }
                     },
                     child: state is InstagramProfileLoading
                         ? SpinKitWave(color: Colors.white, size: 20)
