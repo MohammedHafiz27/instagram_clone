@@ -53,29 +53,35 @@ class UserPageTabletLayout extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          Drawer(
-            backgroundColor: Colors.transparent,
-            child: Column(
-              children: [
-                SizedBox(height: 30),
-                DrawerHeader(child: Text('Instagram', style: AppStyles.styleSemiBold22(context))),
-                Expanded(
-                  flex: 1,
-                  child: ListView.builder(
-                    itemCount: drawerItems.length,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: drawerItems[index].leading,
-                        title: Text(drawerItems[index].title, style: AppStyles.styleSemiBold18(context)),
-                      );
-                    },
+          Expanded(
+            flex: 1,
+            child: Drawer(
+              backgroundColor: Colors.transparent,
+              child: Column(
+                children: [
+                  SizedBox(height: 30),
+                  DrawerHeader(child: Text('Instagram', style: AppStyles.styleSemiBold22(context))),
+                  Expanded(
+                    flex: 1,
+                    child: ListView.builder(
+                      itemCount: drawerItems.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          leading: drawerItems[index].leading,
+                          title: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(drawerItems[index].title, style: AppStyles.styleSemiBold18(context)),
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-          Flexible(child: SizedBox(width: 30)),
+
           Expanded(
             flex: 4,
             child: UserPageMobilelayout(
