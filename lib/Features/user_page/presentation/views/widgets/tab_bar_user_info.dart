@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:instagram_clone/Core/utils/app_route.dart';
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart';
 
@@ -76,10 +78,13 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                   childAspectRatio: 0.9 / 1.6,
                 ),
                 itemBuilder: (context, index) {
-                  return CachedNetworkImage(
-                    placeholder: (context, url) => SpinKitCircle(color: Colors.white),
-                    imageUrl: widget.reelsModel.data?.items?[index].thumbnailUrl ?? '',
-                    fit: BoxFit.cover,
+                  return GestureDetector(
+                    onTap: () => context.go(AppRoute.videoPage, extra: widget.reelsModel.data?.items?[index].videoUrl),
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) => SpinKitCircle(color: Colors.white),
+                      imageUrl: widget.reelsModel.data?.items?[index].thumbnailUrl ?? '',
+                      fit: BoxFit.cover,
+                    ),
                   );
                 },
               ),

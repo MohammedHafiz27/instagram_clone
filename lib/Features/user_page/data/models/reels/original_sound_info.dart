@@ -9,7 +9,7 @@ class OriginalSoundInfo extends Equatable {
   final dynamic attributedCustomAudioAssetId;
   final dynamic audioAssetStartTimeInMs;
   final List<dynamic>? audioFilterInfos;
-  final dynamic? audioId;
+  final dynamic audioId;
   final List<dynamic>? audioParts;
   final List<dynamic>? audioPartsByFilter;
   final bool? canRemixBeSharedToFb;

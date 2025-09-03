@@ -61,7 +61,7 @@ class UserPageMobilelayout extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: UserPageButton(title: "Following", icon: Icons.keyboard_arrow_down_sharp),
+                  child: UserPageButton(title: "Following", icon: Icon(Icons.keyboard_arrow_down_sharp)),
                 ),
                 Expanded(flex: 2, child: UserPageButton(title: "Message")),
               ],

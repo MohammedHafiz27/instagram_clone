@@ -3,7 +3,7 @@ import 'package:instagram_clone/Core/utils/app_styles.dart';
 
 class UserPageButton extends StatelessWidget {
   final String? title;
-  final IconData? icon;
+  final Icon? icon;
 
   const UserPageButton({super.key, this.title, this.icon});
 
@@ -11,9 +11,7 @@ class UserPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(8)),
         backgroundColor: Colors.transparent,
         side: BorderSide(color: Colors.white, width: 1),
       ),
@@ -22,7 +20,7 @@ class UserPageButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(title ?? "", style: AppStyles.styleRegular14(context)),
-          Icon(icon, color: Colors.white),
+          ?icon,
         ],
       ),
     );

@@ -6,10 +6,12 @@ import 'package:instagram_clone/Features/user_page/data/models/followers_model/f
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/user_page.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/video_page.dart';
 
 abstract class AppRoute {
   static const String home = '/';
   static const String userpage = '/userpage';
+  static const String videoPage = '/videoPage';
   static GoRouter router = GoRouter(
     routes: [
       GoRoute(
@@ -29,6 +31,12 @@ abstract class AppRoute {
                 postsReelsModel: args['postsReels'] as PostsReelsModel,
                 reelsModel: args['reels'] as ReelsModel,
               );
+            },
+          ),
+          GoRoute(
+            path: videoPage,
+            builder: (context, state) {
+              return VideoPage(videoUrl: state.extra as String);
             },
           ),
         ],
