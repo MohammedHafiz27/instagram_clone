@@ -4,6 +4,7 @@ import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_
 import 'package:instagram_clone/Features/homepage/presentation/views/homepage.dart';
 import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
+import 'package:instagram_clone/Features/user_page/data/models/reels/item.dart';
 import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/user_page.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/video_page.dart';
@@ -36,7 +37,7 @@ abstract class AppRoute {
           GoRoute(
             path: videoPage,
             builder: (context, state) {
-              return VideoPage(videoUrl: state.extra as String);
+              return VideoPage(videoData: state.extra as Item);
             },
           ),
         ],

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
+import 'package:instagram_clone/Features/user_page/data/models/reels/item.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/widgets/reels_app_bar.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/widgets/reels_bottom_bar.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/widgets/reels_side_bar.dart';
+import 'package:instagram_clone/Features/user_page/presentation/views/widgets/video_player_widget.dart';
 
 class VideoPage extends StatelessWidget {
-  final String videoUrl;
-  const VideoPage({super.key, required this.videoUrl});
+  final Item videoData;
+  const VideoPage({super.key, required this.videoData});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            context.pop();
-          },
-          icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
-        ),
-        leadingWidth: 20,
-        backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          ViedoPlayerWidget(videoUrl: videoData.videoUrl ?? ""),
+          SafeArea(top: true, child: Positioned(left: 20, right: 20, child: ReelsAppBar())),
+          Positioned(bottom: 190, right: 10, child: ReelsSideBar(videoData: videoData)),
+          Positioned(bottom: 40, left: 0, right: 0, child: ReelsBottomBar(videoData: videoData)),
+        ],
       ),
-      body: Container(),
     );
   }
 }

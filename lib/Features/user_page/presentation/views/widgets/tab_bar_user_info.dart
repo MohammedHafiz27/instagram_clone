@@ -79,7 +79,8 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
                 ),
                 itemBuilder: (context, index) {
                   return GestureDetector(
-                    onTap: () => context.go(AppRoute.videoPage, extra: widget.reelsModel.data?.items?[index].videoUrl),
+                    onTap: () =>
+                        context.push(AppRoute.videoPage, extra: widget.reelsModel.data?.items?[index]),
                     child: CachedNetworkImage(
                       placeholder: (context, url) => SpinKitCircle(color: Colors.white),
                       imageUrl: widget.reelsModel.data?.items?[index].thumbnailUrl ?? '',

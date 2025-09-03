@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:video_player/video_player.dart';
 
-class ViedoPlayer extends StatefulWidget {
+class ViedoPlayerWidget extends StatefulWidget {
   final String videoUrl;
-  const ViedoPlayer({super.key, required this.videoUrl});
+  const ViedoPlayerWidget({super.key, required this.videoUrl});
 
   @override
-  State<ViedoPlayer> createState() => _ViedoPlayerState();
+  State<ViedoPlayerWidget> createState() => _ViedoPlayerWidgetState();
 }
 
-class _ViedoPlayerState extends State<ViedoPlayer> {
+class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
   late VideoPlayerController _controller;
   @override
   void initState() {
     _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
-      ..initialize().then((_) {
-        setState(() {});
+      ..initialize().then((v) {
+        setState(() {
+          _controller.play();
+        });
       });
     super.initState();
   }
@@ -28,6 +31,15 @@ class _ViedoPlayerState extends State<ViedoPlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return _controller.value.isInitialized
+        ? GestureDetector(
+            onTap: () {
+              setState(() {
+                _controller.value.isPlaying ? _controller.pause() : _controller.play();
+              });
+            },
+            child: Expanded(child: VideoPlayer(_controller)),
+          )
+        : SpinKitCircle(color: Colors.white);
   }
 }

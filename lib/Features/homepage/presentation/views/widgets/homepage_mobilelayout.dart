@@ -43,7 +43,7 @@ class _HomePageMobileLayoutState extends State<HomePageMobileLayout> {
                   showSnackBar(context, message: state.errorMessage);
                 } else if (state is InstagramProfileSuccess) {
                   showSnackBar(context, message: "Profile fetched successfully");
-                  context.go(
+                  context.push(
                     AppRoute.userpage,
                     extra: {
                       'profile': state.profile,
