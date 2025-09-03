@@ -15,7 +15,7 @@ class VideoPage extends StatelessWidget {
       body: Stack(
         children: [
           ViedoPlayerWidget(videoUrl: videoDataReels.videoUrl ?? ""),
-          SafeArea(top: true, child: Positioned(left: 20, right: 20, child: ReelsAppBar())),
+          Positioned(top: 0, left: 20, right: 20, child: SafeArea(top: true, child: ReelsAppBar())),
           Positioned(bottom: 190, right: 10, child: ReelsSideBar(videoData: videoDataReels)),
           Positioned(bottom: 40, left: 0, right: 0, child: ReelsBottomBar(videoData: videoDataReels)),
         ],

@@ -35,12 +35,19 @@ class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
         ? GestureDetector(
             onTap: () {
               setState(() {
-                _controller.value.isPlaying
-                    ? _controller.pause()
-                    : _controller.play();
+                _controller.value.isPlaying ? _controller.pause() : _controller.play();
               });
             },
-            child: Expanded(child: VideoPlayer(_controller)),
+            child: SizedBox.expand(
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: SizedBox(
+                  height: _controller.value.size.height,
+                  width: _controller.value.size.width,
+                  child: VideoPlayer(_controller),
+                ),
+              ),
+            ),
           )
         : SpinKitCircle(color: Colors.white);
   }
