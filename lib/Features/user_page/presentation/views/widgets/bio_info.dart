@@ -27,8 +27,7 @@ class BioInfo extends StatelessWidget {
           children: [
             FollowedByImages(followersModel: followersModel),
             SizedBox(width: 10),
-            SizedBox(
-              width: 220,
+            Expanded(
               child: Text(
                 "Followed by ${followersModel.data?.items?[0].fullName} ,${followersModel.data?.items?[1].fullName} ,${followersModel.data?.items?[2].fullName}",
                 style: AppStyles.styleRegular14(context),

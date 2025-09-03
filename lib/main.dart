@@ -4,6 +4,7 @@ import 'package:instagram_clone/Core/utils/app_route.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.sizeOf(context).width);
     return MaterialApp.router(
       routerConfig: AppRoute.router,
       debugShowCheckedModeBanner: false,

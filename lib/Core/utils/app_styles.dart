@@ -51,8 +51,8 @@ double getScaleFactor(BuildContext context) {
   // var width = physicalWidth / devicePixelRatio;
   double width = MediaQuery.sizeOf(context).width;
   if (width < SizeConfig.tabletBreakPoint) {
-    return width / 550;
+    return width / 450;
   } else {
-    return width / 1000;
+    return width / 800;
   }
 }
