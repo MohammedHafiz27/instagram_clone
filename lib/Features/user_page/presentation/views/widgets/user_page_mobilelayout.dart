@@ -64,7 +64,7 @@ class UserPageMobilelayout extends StatelessWidget {
               ],
             ),
             SizedBox(height: 8),
-            Expanded(child: TabBarUserInfo()),
+            Expanded(child: TabBarUserInfo(postsReelsModel: postsReelsModel)),
           ],
         ),
       ),

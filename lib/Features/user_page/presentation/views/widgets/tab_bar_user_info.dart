@@ -1,21 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 
 class TabBarUserInfo extends StatefulWidget {
-  const TabBarUserInfo({super.key});
+  final PostsReelsModel postsReelsModel;
+  const TabBarUserInfo({super.key, required this.postsReelsModel});
 
   @override
   State<TabBarUserInfo> createState() => _TabBarUserInfoState();
 }
 
-class _TabBarUserInfoState extends State<TabBarUserInfo>
-    with SingleTickerProviderStateMixin {
-  final List<String> img = [
-    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-    "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
-  ];
+class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProviderStateMixin {
+  // final List<String> img = [
+  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+  //   "https://krita-artists.org/uploads/default/original/3X/c/f/cfc4990e32f31acd695481944f2163e96ff7c6ba.jpeg",
+  // ];
 
   late TabController _tabController;
   @override
@@ -55,7 +57,7 @@ class _TabBarUserInfoState extends State<TabBarUserInfo>
             controller: _tabController,
             children: [
               GridView.builder(
-                itemCount: img.length,
+                itemCount: widget.postsReelsModel.data?.count ?? 0,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   mainAxisSpacing: 1,
@@ -64,13 +66,13 @@ class _TabBarUserInfoState extends State<TabBarUserInfo>
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    imageUrl: img[index],
+                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
                     fit: BoxFit.cover,
                   );
                 },
               ),
               GridView.builder(
-                itemCount: img.length,
+                itemCount: widget.postsReelsModel.data?.count ?? 0,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   mainAxisSpacing: 1,
@@ -79,7 +81,8 @@ class _TabBarUserInfoState extends State<TabBarUserInfo>
                 ),
                 itemBuilder: (context, index) {
                   return CachedNetworkImage(
-                    imageUrl: img[index],
+                    placeholder: (context, url) => SpinKitCircle(),
+                    imageUrl: widget.postsReelsModel.data?.items?[index].thumbnailUrl ?? '',
                     fit: BoxFit.cover,
                   );
                 },
