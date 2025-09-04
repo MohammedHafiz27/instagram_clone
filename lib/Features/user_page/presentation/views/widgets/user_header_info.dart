@@ -41,7 +41,7 @@ class UserHeaderInfo extends StatelessWidget {
             ),
           ),
 
-          UserHeaderInfoNumbers(secondTitle: 'posts', number: (postsReelsModel.data?.count).toString()),
+          UserHeaderInfoNumbers(secondTitle: 'posts', number: (instagramProfileModel.data?.mediaCount).toString()),
           UserHeaderInfoNumbers(
             secondTitle: 'followers',
             number: formatFollowers(instagramProfileModel.data?.followerCount),

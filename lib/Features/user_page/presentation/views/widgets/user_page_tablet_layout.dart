@@ -61,7 +61,12 @@ class UserPageTabletLayout extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(height: 30),
-                  DrawerHeader(child: Text('Instagram', style: AppStyles.styleSemiBold22(context))),
+                  DrawerHeader(
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "https://static.vecteezy.com/system/resources/previews/065/386/566/non_2x/instagram-wordmark-logo-icon-ig-app-transparent-background-premium-social-media-design-for-digital-download-free-png.png",
+                    ),
+                  ),
                   Expanded(
                     flex: 1,
                     child: ListView.builder(

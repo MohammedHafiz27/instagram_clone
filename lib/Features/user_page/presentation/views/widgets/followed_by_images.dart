@@ -7,7 +7,7 @@ class FollowedByImages extends StatelessWidget {
   const FollowedByImages({super.key, required this.followersModel});
   List get img => [
     followersModel.data?.items?[0].profilePicUrl,
-    followersModel.data?.items?[1].profilePicUrl,
+    followersModel.data?.items?[3].profilePicUrl,
     followersModel.data?.items?[2].profilePicUrl,
   ];
 
@@ -23,14 +23,9 @@ class FollowedByImages extends StatelessWidget {
               left: i * 25,
               child: CachedNetworkImage(
                 imageUrl: img[i] ?? '',
-                imageBuilder: (context, imageProvider) =>
-                    CircleAvatar(radius: 20, backgroundImage: imageProvider),
-                placeholder: (context, url) => CircleAvatar(
-                  radius: 20,
-                  child: CircularProgressIndicator(),
-                ),
-                errorWidget: (context, url, error) =>
-                    CircleAvatar(radius: 20, child: Icon(Icons.error)),
+                imageBuilder: (context, imageProvider) => CircleAvatar(radius: 20, backgroundImage: imageProvider),
+                placeholder: (context, url) => CircleAvatar(radius: 20, child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => CircleAvatar(radius: 20, child: Icon(Icons.error)),
               ),
             ),
         ],
