@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/reels/reels.dart';
+import 'package:instagram_clone/Features/user_page/presentation/view_models/apptheme_cubit/apptheme_cubit.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/bio_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/tab_bar_user_info.dart';
 import 'package:instagram_clone/Features/user_page/presentation/views/widgets/user_header_info.dart';
@@ -39,8 +41,16 @@ class UserPageMobilelayout extends StatelessWidget {
         title: Text(instagramProfileModel.data?.username ?? '', style: AppStyles.styleSemiBold18(context)),
         centerTitle: false,
         actions: [
-          Icon(Icons.notifications_none, color: Colors.white),
-          Icon(Icons.more_horiz, color: Colors.white),
+          IconButton(
+            onPressed: () {
+              context.read<AppthemeCubit>().toggleTheme();
+            },
+            icon: Theme.of(context).scaffoldBackgroundColor == Colors.black
+                ? Icon(Icons.light_mode)
+                : Icon(Icons.dark_mode),
+          ),
+          Icon(Icons.notifications_none),
+          Icon(Icons.more_horiz),
         ],
       ),
       body: Padding(
