@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/drawer_model.dart';
@@ -67,11 +68,18 @@ class UserPageTabletLayout extends StatelessWidget {
                       itemCount: drawerItems.length,
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: drawerItems[index].leading,
-                          title: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Text(drawerItems[index].title, style: AppStyles.styleSemiBold18(context)),
+                        return GestureDetector(
+                          onTap: () {
+                            if (index == 0) {
+                              context.pop();
+                            }
+                          },
+                          child: ListTile(
+                            leading: drawerItems[index].leading,
+                            title: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(drawerItems[index].title, style: AppStyles.styleSemiBold18(context)),
+                            ),
                           ),
                         );
                       },

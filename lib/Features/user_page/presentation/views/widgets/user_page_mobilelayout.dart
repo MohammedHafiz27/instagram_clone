@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Core/utils/app_styles.dart';
+import 'package:instagram_clone/Core/utils/size_config.dart';
 import 'package:instagram_clone/Features/homepage/data/models/instagram_profile_model/instagram_profile_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/followers_model/followers_model.dart';
 import 'package:instagram_clone/Features/user_page/data/models/posts_reels_model/posts_reels_model.dart';
@@ -30,12 +31,14 @@ class UserPageMobilelayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            context.pop();
-          },
-          icon: Icon(Icons.keyboard_arrow_left),
-        ),
+        leading: MediaQuery.sizeOf(context).width < SizeConfig.tabletBreakPoint
+            ? IconButton(
+                onPressed: () {
+                  context.pop();
+                },
+                icon: Icon(Icons.keyboard_arrow_left),
+              )
+            : SizedBox(),
         leadingWidth: 20,
         backgroundColor: Colors.transparent,
         title: Text(instagramProfileModel.data?.username ?? '', style: AppStyles.styleSemiBold18(context)),
