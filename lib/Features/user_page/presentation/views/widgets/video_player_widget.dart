@@ -12,6 +12,7 @@ class ViedoPlayerWidget extends StatefulWidget {
 
 class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
   late VideoPlayerController _controller;
+
   @override
   void initState() {
     _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
@@ -29,6 +30,46 @@ class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
     super.dispose();
   }
 
+  Widget _buildVideoContainer() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
+        const videoAspectRatio = 9.0 / 16.0;
+
+        double videoWidth, videoHeight;
+
+        if (screenWidth / screenHeight > videoAspectRatio) {
+          videoHeight = screenHeight;
+          videoWidth = videoHeight * videoAspectRatio;
+        } else {
+          videoWidth = screenWidth;
+          videoHeight = videoWidth / videoAspectRatio;
+
+          if (videoHeight > screenHeight) {
+            videoHeight = screenHeight;
+            videoWidth = videoHeight * videoAspectRatio;
+          }
+        }
+
+        return Center(
+          child: SizedBox(
+            width: videoWidth,
+            height: videoHeight,
+            child: FittedBox(
+              fit: BoxFit.cover,
+              child: SizedBox(
+                height: _controller.value.size.height,
+                width: _controller.value.size.width,
+                child: VideoPlayer(_controller),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return _controller.value.isInitialized
@@ -38,17 +79,8 @@ class _ViedoPlayerWidgetState extends State<ViedoPlayerWidget> {
                 _controller.value.isPlaying ? _controller.pause() : _controller.play();
               });
             },
-            child: SizedBox.expand(
-              child: FittedBox(
-                fit: BoxFit.cover,
-                child: SizedBox(
-                  height: _controller.value.size.height,
-                  width: _controller.value.size.width,
-                  child: VideoPlayer(_controller),
-                ),
-              ),
-            ),
+            child: _buildVideoContainer(),
           )
-        : SpinKitCircle(color: Colors.white);
+        : const SpinKitCircle(color: Colors.white);
   }
 }
