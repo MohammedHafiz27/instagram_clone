@@ -39,7 +39,6 @@ class _TabBarUserInfoState extends State<TabBarUserInfo> with SingleTickerProvid
           dividerColor: Colors.transparent,
           indicatorSize: TabBarIndicatorSize.tab,
           dragStartBehavior: DragStartBehavior.down,
-          labelColor: Colors.white,
           indicator: BoxDecoration(
             border: Border(bottom: BorderSide(color: Colors.white, width: 1)),
           ),

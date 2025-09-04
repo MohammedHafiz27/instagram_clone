@@ -17,7 +17,7 @@ class BioInfo extends StatelessWidget {
         Text(instagramProfileModel.data?.biography ?? "", style: AppStyles.styleRegular14(context)),
         Row(
           children: [
-            Transform.rotate(angle: -10, child: Icon(Ionicons.link_outline, color: Colors.white)),
+            Transform.rotate(angle: -10, child: Icon(Ionicons.link_outline,)),
             SizedBox(width: 2),
             Text(instagramProfileModel.data?.bioLinks?[0].url ?? "", style: AppStyles.styleRegular14(context)),
           ],

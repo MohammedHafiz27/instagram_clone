@@ -11,17 +11,14 @@ class UserPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(8),
-        ),
-        backgroundColor: Colors.transparent,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(8)),
         side: BorderSide(color: Colors.white, width: 1),
       ),
       onPressed: () {},
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(title ?? "", style: AppStyles.styleRegular14(context)),
+          Text(title ?? "", style: AppStyles.styleRegular14(context).copyWith(color: Colors.white)),
           ?icon,
         ],
       ),

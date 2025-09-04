@@ -6,7 +6,7 @@ class BioLink extends Equatable {
   final String? imageUrl;
   final bool? isPinned;
   final bool? isVerified;
-  final int? linkId;
+  final dynamic linkId;
   final String? linkType;
   final String? lynxUrl;
   final String? mediaAccentColorHex;
@@ -37,13 +37,12 @@ class BioLink extends Equatable {
     imageUrl: json['image_url'] as String?,
     isPinned: json['is_pinned'] as bool?,
     isVerified: json['is_verified'] as bool?,
-    linkId: json['link_id'] as int?,
+    linkId: json['link_id'],
     linkType: json['link_type'] as String?,
     lynxUrl: json['lynx_url'] as String?,
     mediaAccentColorHex: json['media_accent_color_hex'] as String?,
     mediaType: json['media_type'] as String?,
-    openExternalUrlWithInAppBrowser:
-        json['open_external_url_with_in_app_browser'] as bool?,
+    openExternalUrlWithInAppBrowser: json['open_external_url_with_in_app_browser'] as bool?,
     title: json['title'] as String?,
     url: json['url'] as String?,
   );

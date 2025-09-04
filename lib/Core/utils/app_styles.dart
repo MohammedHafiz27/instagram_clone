@@ -1,10 +1,10 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/size_config.dart';
 
 abstract class AppStyles {
   static TextStyle styleSemiBold18(BuildContext context) {
     return TextStyle(
-      color: Color(0xffffffff),
+      color: Theme.of(context).textTheme.bodyLarge?.color,
       fontWeight: FontWeight.w600,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
     );
@@ -12,7 +12,7 @@ abstract class AppStyles {
 
   static TextStyle styleSemiBold22(BuildContext context) {
     return TextStyle(
-      color: Color(0xffffffff),
+      color: Theme.of(context).textTheme.bodyLarge?.color,
       fontWeight: FontWeight.w600,
       fontSize: getResponsiveFontSize(context, fontSize: 22),
     );
@@ -20,7 +20,7 @@ abstract class AppStyles {
 
   static TextStyle styleRegular16(BuildContext context) {
     return TextStyle(
-      color: Color(0xffffffff),
+      color: Theme.of(context).textTheme.bodyMedium?.color,
       fontWeight: FontWeight.w400,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
     );
@@ -28,7 +28,7 @@ abstract class AppStyles {
 
   static TextStyle styleRegular14(BuildContext context) {
     return TextStyle(
-      color: Color(0xffffffff),
+      color: Theme.of(context).textTheme.bodySmall?.color,
       fontWeight: FontWeight.w400,
       fontSize: getResponsiveFontSize(context, fontSize: 14),
     );

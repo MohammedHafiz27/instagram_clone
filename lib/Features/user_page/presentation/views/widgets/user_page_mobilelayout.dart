@@ -32,7 +32,7 @@ class UserPageMobilelayout extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(Icons.keyboard_arrow_left, color: Colors.white),
+          icon: Icon(Icons.keyboard_arrow_left),
         ),
         leadingWidth: 20,
         backgroundColor: Colors.transparent,
@@ -59,14 +59,17 @@ class UserPageMobilelayout extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 2,
-                  child: UserPageButton(title: "Following", icon: Icon(Icons.keyboard_arrow_down_sharp)),
+                  child: UserPageButton(
+                    title: "Following",
+                    icon: Icon(Icons.keyboard_arrow_down_sharp, color: Colors.white),
+                  ),
                 ),
                 Expanded(flex: 2, child: UserPageButton(title: "Message")),
               ],
             ),
             SizedBox(height: 8),
             Expanded(
-              child: TabBarUserInfo(postsReelsModel: postsReelsModel, reelsModel: reelsModel,),
+              child: TabBarUserInfo(postsReelsModel: postsReelsModel, reelsModel: reelsModel),
             ),
           ],
         ),
