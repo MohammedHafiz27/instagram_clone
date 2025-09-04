@@ -13,7 +13,7 @@ class ReelsAppBar extends StatelessWidget {
           child: Icon(Icons.arrow_back_ios, color: Colors.white),
           onTap: () => Navigator.pop(context),
         ),
-        Text('Your Reels', style: AppStyles.styleSemiBold22(context)),
+        Text('Your Reels', style: AppStyles.styleSemiBold22(context).copyWith(color: Colors.white)),
         Icon(Icons.camera_alt_outlined, color: Colors.white),
       ],
     );
